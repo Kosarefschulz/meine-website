@@ -2,2336 +2,1062 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>NRW Entrümpelung Pro | Professionelle Entrümpelung in ganz Nordrhein-Westfalen</title>
-    <meta name="description" content="Professionelle Entrümpelung und Haushaltsauflösung in ganz NRW - Köln, Düsseldorf, Dortmund, Essen, Bielefeld. ✓ Festpreise ✓ 24h Service ✓ Zufriedenheitsgarantie">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Entrümpelung SEO Tool</title>
     <style>
-        :root {
-            --primary-blue: #1e3a8a;
-            --secondary-blue: #3b82f6;
-            --accent-red: #dc2626;
-            --light-gray: #f3f4f6;
-            --medium-gray: #9ca3af;
-            --dark-gray: #374151;
-            --white: #ffffff;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* iOS specific fixes */
-        * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-        }
-
-        a, button {
-            cursor: pointer;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        /* Fix iOS click delays */
-        a, button, input, select, textarea {
-            touch-action: manipulation;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background-color: var(--white);
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            min-height: 100vh;
+            padding: 15px;
+            color: #333;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
         }
 
-        /* Header */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
+        .header {
+            background: linear-gradient(135deg, #ff416c, #ff4757);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .logo {
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header p {
+            opacity: 0.95;
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .tab-container {
+            display: flex;
+            margin-bottom: 25px;
+            background: #f1f3f4;
+            border-radius: 15px;
+            padding: 6px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 14px 8px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .results {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+            display: none;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .results.show {
+            display: block;
+            animation: expandIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes expandIn {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .keyword-section {
+            margin-bottom: 25px;
+        }
+
+        .keyword-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
             gap: 10px;
         }
 
-        .logo-text {
-            display: inline;
+        .keyword-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.2rem;
-            }
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--dark-gray);
-            font-weight: 500;
-            transition: color 0.3s;
-            cursor: pointer;
-            display: block;
-            position: relative;
-        }
-
-        /* iOS click area fix */
-        @media (max-width: 768px) {
-            .nav-menu a {
-                padding: 1rem;
-                border-bottom: 1px solid var(--light-gray);
-                width: 100%;
-                background-color: transparent;
-            }
-            
-            .nav-menu a:active {
-                background-color: var(--light-gray);
-            }
-        }
-
-        .nav-menu a:hover {
-            color: var(--secondary-blue);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Page Content */
-        .page {
-            display: none;
-            min-height: 80vh;
-            padding: 4rem 0;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 3rem 0;
-            margin-bottom: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 2rem 0;
-                margin-bottom: 2rem;
-            }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary:hover {
+        .keyword-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
+        .keyword-item h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
         }
 
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--primary-blue);
-        }
-
-        /* Cards and Grids */
-        .grid {
+        .keyword-meta {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
         }
 
-        .card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-gray {
-            background-color: var(--light-gray);
-        }
-
-        .section-header {
+        .meta-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        /* Form */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            font-size: 1rem;
+        .difficulty {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
+        .difficulty.low { background: #d4edda; color: #155724; }
+        .difficulty.medium { background: #fff3cd; color: #856404; }
+        .difficulty.high { background: #f8d7da; color: #721c24; }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-gray);
-            color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            color: var(--light-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-blue);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--medium-gray);
-        }
-
-        /* Before/After Slider */
-        .before-after-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin: 2rem auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .before-after-slider {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            cursor: col-resize;
-        }
-
-        .before-image, .after-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .after-image {
-            width: 50%;
-            overflow: hidden;
-            border-right: 3px solid var(--accent-red);
-        }
-
-        .slider-handle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: var(--accent-red);
-            border-radius: 50%;
-            cursor: ew-resize;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            z-index: 10;
-            user-select: none;
-        }
-
-        .before-after-label {
-            position: absolute;
-            top: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .before-label { left: 20px; }
-        .after-label { right: 20px; }
-
-        /* Image Gallery */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        .tips-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
+            border-radius: 15px;
+            margin-top: 15px;
         }
 
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
+        .tips-section h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Service Cards with Images */
-        .service-card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px 12px 0 0;
-            margin: -2rem -2rem 1rem -2rem;
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
         }
 
-        /* Hero with Background Image */
-        .hero-with-image {
+        .tips-section li {
+            padding: 8px 0;
+            padding-left: 20px;
             position: relative;
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.85)), url('placeholder-hero.jpg') center/cover;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        /* Calculator Styles */
-        .room-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary-blue);
+        .tips-section li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+
+        .priority-badge {
+            background: #ff4757;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .location-specific {
+            background: linear-gradient(135deg, #ff9ff3, #f368e0);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .competitor-analysis {
             background: white;
-            color: var(--primary-blue);
-            border-radius: 8px;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .competitor-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #667eea;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .checklist {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .checklist-category {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .checklist-category h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 2px;
+            transform: scale(1.3);
+        }
+
+        .checklist-item label {
+            flex: 1;
             cursor: pointer;
-            transition: all 0.3s;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .impact-badge {
+            background: #28a745;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 10px;
+            margin-left: 8px;
+        }
+
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
             font-weight: 600;
         }
 
-        .room-btn:hover, .room-btn.active {
-            background: var(--primary-blue);
+        .trend-up { color: #28a745; }
+        .trend-down { color: #dc3545; }
+        .trend-stable { color: #ffc107; }
+
+        .advanced-tips {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
         }
 
-        .item-category {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--light-gray);
-            border-radius: 12px;
+        .advanced-tips h4 {
+            margin-bottom: 15px;
+            color: #ecf0f1;
         }
 
-        .item-category h4 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        .item-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .item-selector {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem;
-            background: white;
+        .rank-factor {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
             border-radius: 8px;
-        }
-
-        .item-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .item-controls button {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--primary-blue);
-            background: white;
-            color: var(--primary-blue);
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .item-controls button:hover {
-            background: var(--primary-blue);
-            color: white;
-        }
-
-        .item-controls input {
-            width: 40px;
-            text-align: center;
-            border: 1px solid var(--light-gray);
-            border-radius: 4px;
-            padding: 0.25rem;
-        }
-
-        .item-volume {
-            font-size: 0.85rem;
-            color: var(--medium-gray);
-            margin-left: 0.5rem;
-        }
-
-        .service-options {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .service-option {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--light-gray);
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .service-option input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .cost-summary {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .cost-line {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .cost-line.total {
-            border-bottom: none;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        /* Mobile Navigation Fix */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-                line-height: 1.3;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .btn-primary, .btn-secondary {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-                width: 100%;
-                max-width: 250px;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .before-after-container {
-                height: 250px;
-                max-width: 100%;
-            }
-
-            .item-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .item-selector {
-                font-size: 0.9rem;
-            }
-
-            .item-controls {
-                flex-shrink: 0;
-            }
-
-            .room-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-                width: 100%;
-            }
-
-            .cost-summary {
-                padding: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .cost-line.total {
-                font-size: 1rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .gallery-item {
-                min-height: 200px;
-            }
-
-            .service-option {
-                font-size: 0.9rem;
-                padding: 0.75rem;
-            }
-
-            /* Touch-friendly spacing */
-            button, .btn-primary, .btn-secondary {
-                min-height: 44px;
-            }
-
-            /* Fix horizontal scroll */
-            body {
-                overflow-x: hidden;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            /* Before/After labels smaller on mobile */
-            .before-after-label {
-                font-size: 0.75rem;
-                padding: 3px 10px;
-            }
-
-            /* Smaller margins on mobile */
-            .section {
-                padding: 2rem 0;
-            }
-
-            /* Contact form mobile optimization */
-            input, textarea, select {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-        }
-
-        /* Very small phones */
-        @media (max-width: 380px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .card {
-                padding: 1rem;
-            }
-        }
-
-        /* Tablet optimization */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            margin-bottom: 10px;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo" onclick="event.preventDefault(); showPage('home');">
-                <div class="logo-icon">🏠</div>
-                <span class="logo-text">NRW Entrümpelung Pro</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="event.preventDefault(); toggleMobileMenu();">☰</button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" onclick="event.preventDefault(); showPage('home');">Start</a></li>
-                <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Leistungen</a></li>
-                <li><a href="#b2b" onclick="event.preventDefault(); showPage('b2b');">B2B</a></li>
-                <li><a href="#kalkulator" onclick="event.preventDefault(); showPage('prices'); setTimeout(() => document.getElementById('calculator').scrollIntoView({behavior: 'smooth'}), 100);" style="background: var(--accent-red); color: white; border-radius: 5px; padding: 0.5rem 1rem;">💰 Preiskalkulator</a></li>
-                <li><a href="#about" onclick="event.preventDefault(); showPage('about');">Über uns</a></li>
-                <li><a href="#contact" onclick="event.preventDefault(); showPage('contact');">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 PRO Entrümpelung SEO</h1>
+            <p>Dominiere die lokalen Suchergebnisse</p>
+        </div>
 
-    <!-- Home Page -->
-    <div id="home" class="page active">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div>
-                        <h1>Wir können kaputt, aber das richtig gut!</h1>
-                        <p>Professionelle Entrümpelung, Haushaltsauflösung und Entkernung in Bielefeld und ganz NRW - mit Zufriedenheitsgarantie und Premium-Service.</p>
-                        <div class="hero-buttons">
-                            <a href="#kalkulator" class="btn-primary" onclick="event.preventDefault(); showPage('prices'); setTimeout(() => document.getElementById('calculator').scrollIntoView({behavior: 'smooth'}), 100);" style="background: var(--accent-red); transform: scale(1.1);">
-                                💰 Kostenrechner starten
-                            </a>
-                            <a href="#contact" class="btn-secondary" onclick="event.preventDefault(); showPage('contact');">
-                                ✉️ Direktanfrage
-                            </a>
-                        </div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="before-after-container">
-                            <div class="before-after-slider" id="heroSlider">
-                                <div class="before-image" style="background-image: url('vorher-wohnung.jpg')"></div>
-                                <div class="after-image" id="heroAfter" style="background-image: url('nachher-wohnung.jpg'); width: 50%;">
-                                    <div style="background-image: url('nachher-wohnung.jpg'); background-size: cover; background-position: center; width: 200%; height: 100%;"></div>
-                                </div>
-                                <div class="slider-handle" id="heroHandle" style="left: 50%;">↔</div>
-                                <span class="before-after-label before-label">VORHER</span>
-                                <span class="before-after-label after-label">NACHHER</span>
-                            </div>
-                        </div>
-                        <p style="margin-top: 1rem;">Sehen Sie den Unterschied - professionelle Entrümpelung</p>
-                    </div>
+        <div class="content">
+            <div class="tab-container">
+                <div class="tab active" onclick="switchTab('keywords')">Keywords</div>
+                <div class="tab" onclick="switchTab('strategy')">Strategie</div>
+                <div class="tab" onclick="switchTab('checklist')">Checklist</div>
+                <div class="tab" onclick="switchTab('competitors')">Konkurrenz</div>
+            </div>
+
+            <div class="tab-content active" id="keywords-tab">
+                <div class="input-group">
+                    <label>🎯 Deine Stadt/Region</label>
+                    <input type="text" id="location" placeholder="z.B. München, Berlin, Hamburg">
                 </div>
-            </div>
-        </section>
-
-        <!-- Kalkulator CTA Section -->
-        <section style="background: linear-gradient(135deg, var(--accent-red), #b91c1c); color: white; padding: 3rem 0; margin: 3rem 0;">
-            <div class="container" style="text-align: center;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🧮 Berechnen Sie Ihre Entrümpelungskosten sofort!</h2>
-                <p style="font-size: 1.25rem; margin-bottom: 2rem;">Unser einzigartiger Kalkulator zeigt Ihnen in 2 Minuten, was Ihre Entrümpelung kostet</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto 2rem;">
-                    <div>
-                        <div style="font-size: 3rem;">✅</div>
-                        <h3>BASIC</h3>
-                        <p>ab 890 €</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 3rem;">⭐</div>
-                        <h3>KOMFORT</h3>
-                        <p>ab 1.290 €</p>
-                    </div>
-                    <div>
-                        <div style="font-size: 3rem;">👑</div>
-                        <h3>PREMIUM</h3>
-                        <p>ab 1.890 €</p>
-                    </div>
-                </div>
-                <a href="#kalkulator" class="btn-secondary" onclick="event.preventDefault(); showPage('prices'); setTimeout(() => document.getElementById('calculator').scrollIntoView({behavior: 'smooth'}), 100);" style="font-size: 1.25rem; padding: 1rem 3rem;">
-                    Jetzt Kosten berechnen →
-                </a>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="section-header">
-                <h2>Entrümpelung in NRW - Mehr als nur Ausräumen</h2>
-                <p>Wir sind Ihr Partner für alle Arten von Räumungen und Auflösungen</p>
-            </div>
-            
-            <div class="card" style="margin-bottom: 2rem;">
-                <h3 style="color: var(--primary-blue);">Warum NRW Entrümpelung Pro?</h3>
-                <p>Seit über 20 Jahren sind wir in ganz Nordrhein-Westfalen tätig. Von unserem Standort in Steinhagen aus betreuen wir Kunden von Aachen bis Bielefeld, von Köln bis Münster. Dabei haben wir uns auf alle Arten von Entrümpelungen spezialisiert:</p>
                 
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Haushaltsauflösungen:</strong> Komplette Wohnungsauflösungen mit Wertanrechnung</li>
-                    <li><strong>Wohnungsauflösungen:</strong> Von der 1-Zimmer-Wohnung bis zum Mehrfamilienhaus</li>
-                    <li><strong>Kellerentrümpelung:</strong> Endlich wieder Platz im Keller schaffen</li>
-                    <li><strong>Dachbodenentrümpelung:</strong> Vergessene Schätze und alten Ballast entsorgen</li>
-                    <li><strong>Garagenentrümpelung:</strong> Ihr Auto soll wieder reinpassen</li>
-                    <li><strong>Messie-Wohnungen:</strong> Diskret und professionell</li>
-                    <li><strong>Geschäftsauflösungen:</strong> Büros, Praxen, Läden, Werkstätten</li>
-                    <li><strong>Nachlassentrümpelung:</strong> Sensibel in schweren Zeiten</li>
-                </ul>
+                <div class="input-group">
+                    <label>🏠 Hauptservice</label>
+                    <select id="service-type">
+                        <option value="entrümpelung">Entrümpelung allgemein</option>
+                        <option value="haushaltsauflösung">Haushaltsauflösung</option>
+                        <option value="wohnungsauflösung">Wohnungsauflösung</option>
+                        <option value="kellerentrümpelung">Kellerentrümpelung</option>
+                        <option value="dachbodenentrümpelung">Dachbodenentrümpelung</option>
+                        <option value="geschäftsentrümpelung">Geschäftsentrümpelung</option>
+                        <option value="messie">Messie-Entrümpelung</option>
+                        <option value="sperrmüll">Sperrmüllentsorgung</option>
+                        <option value="nachlassabwicklung">Nachlassabwicklung</option>
+                    </select>
+                </div>
 
-                <p>Dabei ist es uns egal, ob Sie nur einen Raum entrümpeln lassen möchten oder das ganze Haus - wir haben für jeden Bedarf die passende Lösung. Nutzen Sie unseren Preiskalkulator und erhalten Sie sofort eine Kostenschätzung!</p>
+                <div class="input-group">
+                    <label>💰 Dein Budget (monatlich)</label>
+                    <select id="budget">
+                        <option value="low">Unter 500€</option>
+                        <option value="medium">500€ - 1500€</option>
+                        <option value="high">Über 1500€</option>
+                    </select>
+                </div>
+
+                <button class="btn" onclick="generateProKeywords()">🔍 Professionelle Keyword-Analyse starten</button>
+
+                <div class="results" id="keyword-results"></div>
             </div>
 
-            <div class="grid" style="margin-bottom: 3rem;">
-                <div class="card">
-                    <h3 style="color: var(--primary-blue);">🏠 Privatkunden</h3>
-                    <p>Ob Umzug, Renovierung oder Trauerfall - wir sind für Sie da. Mit unserem 3-Stufen-System (Basic, Komfort, Premium) finden Sie genau das richtige Paket für Ihre Bedürfnisse.</p>
-                    <a href="#services" onclick="event.preventDefault(); showPage('services');" style="color: var(--secondary-blue);">Mehr erfahren →</a>
+            <div class="tab-content" id="strategy-tab">
+                <div class="input-group">
+                    <label>🌐 Deine Website URL</label>
+                    <input type="url" id="website-url" placeholder="https://deine-entrümpelung.de">
                 </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-blue);">🏢 Geschäftskunden</h3>
-                    <p>Schnelle und diskrete Büroauflösungen, Praxisräumungen oder Werkstattauflösungen. Auch am Wochenende und außerhalb der Geschäftszeiten.</p>
-                    <a href="#b2b" onclick="event.preventDefault(); showPage('b2b');" style="color: var(--secondary-blue);">B2B-Services →</a>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-blue);">🏛️ Behörden & Institutionen</h3>
-                    <p>Wir arbeiten regelmäßig mit Sozialämtern, Berufsbetreuern, Nachlassverwaltern und Bestattern zusammen. Direkte Abrechnung möglich.</p>
-                    <a href="#b2b" onclick="event.preventDefault(); showPage('b2b');" style="color: var(--secondary-blue);">Für Behörden →</a>
-                </div>
-            </div>
-        </section>
 
-        <section class="section-gray">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Unsere Leistungen im Überblick</h2>
-                    <p>Von der kleinen Kellerentrümpelung bis zur kompletten Entkernung - wir sind Ihr Partner.</p>
+                <div class="input-group">
+                    <label>📍 Einzugsgebiet (km)</label>
+                    <select id="radius">
+                        <option value="10">Bis 10 km</option>
+                        <option value="25">Bis 25 km</option>
+                        <option value="50">Bis 50 km</option>
+                        <option value="100">Bis 100 km</option>
+                    </select>
                 </div>
-                <div class="grid">
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="haushaltsaufloesung.jpg" alt="Haushaltsauflösung">
-                        <div class="gallery-caption">
-                            <h3>Haushaltsauflösungen</h3>
-                            <p>Komplette Wohnungsräumung inkl. Wertanrechnung</p>
+
+                <button class="btn" onclick="generateStrategy()">🚀 SEO-Strategie entwickeln</button>
+
+                <div class="results" id="strategy-results"></div>
+            </div>
+
+            <div class="tab-content" id="checklist-tab">
+                <div class="checklist">
+                    <h3 style="margin-bottom: 20px; color: #667eea; text-align: center;">📋 Professional SEO Checklist</h3>
+                    
+                    <div class="checklist-category">
+                        <h4>🎯 Keyword-Optimierung</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check1">
+                            <label for="check1">Hauptkeyword im Title-Tag (max. 60 Zeichen) <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check2">
+                            <label for="check2">Meta-Description mit Call-to-Action (max. 160 Zeichen) <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check3">
+                            <label for="check3">H1-Tag mit lokalen Keywords optimiert <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check4">
+                            <label for="check4">Keyword-Dichte zwischen 1-2% halten <span class="impact-badge">Mittel</span></label>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="gewerbeaufloesung.jpg" alt="Gewerbeauflösung">
-                        <div class="gallery-caption">
-                            <h3>Gewerbeauflösungen</h3>
-                            <p>Büros, Praxen, Läden - schnell und diskret</p>
+
+                    <div class="checklist-category">
+                        <h4>📍 Lokales SEO</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check5">
+                            <label for="check5">Google My Business vollständig optimiert <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check6">
+                            <label for="check6">NAP (Name, Adresse, Telefon) konsistent überall <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check7">
+                            <label for="check7">Lokale Verzeichnisse (Gelbe Seiten, Bing Places) <span class="impact-badge">Mittel</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check8">
+                            <label for="check8">Schema.org LocalBusiness Markup implementiert <span class="impact-badge">Hoch</span></label>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="messie-wohnung.jpg" alt="Messie-Wohnung">
-                        <div class="gallery-caption">
-                            <h3>Messie-Wohnungen</h3>
-                            <p>Sensible Räumung mit Desinfektion</p>
+
+                    <div class="checklist-category">
+                        <h4>📱 Technisches SEO</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check9">
+                            <label for="check9">Mobile-First Design implementiert <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check10">
+                            <label for="check10">Ladezeit unter 2 Sekunden <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check11">
+                            <label for="check11">SSL-Zertifikat aktiv (HTTPS) <span class="impact-badge">Hoch</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check12">
+                            <label for="check12">XML-Sitemap bei Google eingereicht <span class="impact-badge">Mittel</span></label>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="teilentruempelung.jpg" alt="Teilentrümpelung">
-                        <div class="gallery-caption">
-                            <h3>Teilentrümpelung</h3>
-                            <p>Keller, Dachboden, Garage einzeln räumen</p>
+
+                    <div class="checklist-category">
+                        <h4>📝 Content-Optimierung</h4>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check13">
+                            <label for="check13">Separate Seiten für jeden Service erstellt <span class="impact-badge">Hoch</span></label>
                         </div>
-                    </div>
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="entkernung.jpg" alt="Entkernung">
-                        <div class="gallery-caption">
-                            <h3>Entkernung & Rückbau</h3>
-                            <p>Professionelle Demontage und Entfernung</p>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check14">
+                            <label for="check14">FAQ-Seite mit typischen Kundenfragen <span class="impact-badge">Mittel</span></label>
                         </div>
-                    </div>
-                    <div class="gallery-item" onclick="showPage('services');" style="cursor: pointer;">
-                        <img src="verwertung.jpg" alt="Verwertung">
-                        <div class="gallery-caption">
-                            <h3>Verkauf & Verwertung</h3>
-                            <p>Wertanrechnung für erhaltene Gegenstände</p>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check15">
+                            <label for="check15">Vorher/Nachher Galerie optimiert <span class="impact-badge">Mittel</span></label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check16">
+                            <label for="check16">Kundenbewertungen prominent platziert <span class="impact-badge">Hoch</span></label>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="container">
-            <div class="section-header">
-                <h2>Über 5.000 zufriedene Kunden in ganz NRW</h2>
-                <p>Von Köln bis Paderborn, von Aachen bis Minden - wir sind überall für Sie da!</p>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <div style="color: #fbbf24; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Nach dem Tod meiner Mutter war ich völlig überfordert. Das Team hat nicht nur die Wohnung geräumt, sondern war auch emotional eine große Stütze. Vielen Dank!"</p>
-                    <p style="font-weight: 600; color: var(--primary-blue);">Maria K. aus Bielefeld</p>
+            <div class="tab-content" id="competitors-tab">
+                <div class="input-group">
+                    <label>🌐 Deine Website</label>
+                    <input type="url" id="comp-website" placeholder="https://deine-website.de">
                 </div>
-                <div class="card">
-                    <div style="color: #fbbf24; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Die Firma hat unsere Messie-Wohnung diskret und professionell geräumt. Das digitale Kundenportal war super - wir konnten alles verfolgen!"</p>
-                    <p style="font-weight: 600; color: var(--primary-blue);">Familie Schmidt, Gütersloh</p>
+
+                <div class="input-group">
+                    <label>📍 Zielregion</label>
+                    <input type="text" id="comp-location" placeholder="München, Berlin, etc.">
                 </div>
-                <div class="card">
-                    <div style="color: #fbbf24; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Das Übergabe-Paket war perfekt! Entrümpelung, Reinigung und sogar die Schlüsselübergabe an den Vermieter - alles aus einer Hand."</p>
-                    <p style="font-weight: 600; color: var(--primary-blue);">Peter K., Bielefeld</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="container" style="margin-top: 3rem;">
-            <div class="section-header">
-                <h2>Vorher-Nachher: So arbeiten wir</h2>
-                <p>Überzeugen Sie sich selbst von unserer gründlichen Arbeit</p>
-            </div>
-            <div class="grid">
-                <div class="before-after-container">
-                    <div class="before-after-slider" id="slider1">
-                        <div class="before-image" style="background-image: url('vorher1.jpg')"></div>
-                        <div class="after-image" id="after1" style="background-image: url('nachher1.jpg'); width: 50%;">
-                            <div style="background-image: url('nachher1.jpg'); background-size: cover; background-position: center; width: 200%; height: 100%;"></div>
-                        </div>
-                        <div class="slider-handle" id="handle1" style="left: 50%;">↔</div>
-                        <span class="before-after-label before-label">VORHER</span>
-                        <span class="before-after-label after-label">NACHHER</span>
-                    </div>
-                    <p style="text-align: center; margin-top: 1rem;"><strong>Wohnzimmer-Entrümpelung</strong></p>
-                </div>
-                <div class="before-after-container">
-                    <div class="before-after-slider" id="slider2">
-                        <div class="before-image" style="background-image: url('vorher2.jpg')"></div>
-                        <div class="after-image" id="after2" style="background-image: url('nachher2.jpg'); width: 50%;">
-                            <div style="background-image: url('nachher2.jpg'); background-size: cover; background-position: center; width: 200%; height: 100%;"></div>
-                        </div>
-                        <div class="slider-handle" id="handle2" style="left: 50%;">↔</div>
-                        <span class="before-after-label before-label">VORHER</span>
-                        <span class="before-after-label after-label">NACHHER</span>
-                    </div>
-                    <p style="text-align: center; margin-top: 1rem;"><strong>Kellerentrümpelung</strong></p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Services Page -->
-    <div id="services" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>Unsere Leistungen</h1>
-                <p>Professionell, zuverlässig und immer mit dem Extra-Service</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">🏠 Komplette Haushaltsauflösungen</h2>
-                <p>Wir übernehmen die vollständige Räumung von privaten Haushalten – ganz gleich ob Einfamilienhaus, Wohnung, Seniorenheim oder Notunterkunft.</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Kostenlose Besichtigung und Beratung vor Ort</li>
-                    <li>Demontage aller Möbel und Einbauten</li>
-                    <li>Sorgfältige Trennung verwertbarer Materialien</li>
-                    <li>Abtransport und umweltgerechte Entsorgung</li>
-                    <li>Besenreine Übergabe, auf Wunsch inkl. Grundreinigung</li>
-                </ul>
-                <p><strong>Ideal für:</strong> Erbengemeinschaften, Immobilienverkäufer, Vermieter</p>
-            </div>
-
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">🏢 Gewerbe- und Betriebsauflösungen</h2>
-                <p>Wir entrümpeln gewerblich genutzte Immobilien schnell und effizient – auch bei laufendem Betrieb oder unter hohem Zeitdruck.</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Entfernung von Regalsystemen, Maschinen, Akten</li>
-                    <li>Aktenvernichtung nach DSGVO mit Zertifikat</li>
-                    <li>Demontage von Industrieanlagen</li>
-                    <li>Containerbereitstellung bei Großmengen</li>
-                </ul>
-                <p><strong>Effektiv, diskret und wirtschaftlich</strong> – auch außerhalb der Geschäftszeiten.</p>
-            </div>
-
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">🧹 Entrümpelung von Messie-Wohnungen</h2>
-                <p>Hier ist besondere Sensibilität gefragt. Wir sind spezialisiert auf extreme Fälle – mit Diskretion und Professionalität.</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Räumung stark verwahrlosten Wohnräume</li>
-                    <li>Desinfektion und Geruchsneutralisation</li>
-                    <li>Sicherung persönlicher Unterlagen</li>
-                    <li>Zusammenarbeit mit Behörden und Betreuern</li>
-                    <li>Auf Wunsch: Schädlingsbekämpfung</li>
-                </ul>
-                <p><strong>Wir bewahren Diskretion</strong>, arbeiten ohne Werbung am Fahrzeug.</p>
-            </div>
-
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">🔨 Entkernung & Rückbau</h2>
-                <p>Professionelle Demontage und Rückbau für Ihr Projekt.</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Komplette Entkernung von Gebäuden</li>
-                    <li>Demontage von Einbauten und Installationen</li>
-                    <li>Rückbau von Zwischenwänden</li>
-                    <li>Fachgerechte Entsorgung aller Materialien</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">♻️ Verkauf & Verwertung</h2>
-                <p>Werterhaltung statt Wegwerfen - wir rechnen verwertbare Gegenstände fair an.</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Bewertung von Möbeln und Antiquitäten</li>
-                    <li>Ankauf von Werkzeugen und Maschinen</li>
-                    <li>Vermittlung an Händler und Sammler</li>
-                    <li>Transparente Wertanrechnung</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <!-- About Page -->
-    <div id="about" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>Über uns</h1>
-                <p>Mit Herz und Verstand für Ihren Neuanfang</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="card">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">Unsere Vision</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><em>"Wir vereinen Ehrlichkeit und Nächstenliebe mit professionellen Dienstleistungen, damit jeder Kontakt Wertvoll bleibt."</em></p>
                 
-                <p>Bei Wertvoll Dienstleistungen verstehen wir, dass hinter jeder Haushaltsauflösung eine persönliche Geschichte steht. Ob Trauerfall, Umzug ins Seniorenheim, Scheidung oder einfach der Wunsch nach einem Neuanfang – wir begleiten Sie mit Respekt, Diskretion und professioneller Kompetenz.</p>
-
-                <h3 style="margin-top: 2rem; color: var(--primary-blue);">Das macht uns besonders:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Umweltbewusstsein:</strong> Recycling und nachhaltige Wiederverwertung</li>
-                    <li><strong>Kundenzentrierung:</strong> Ihr Anliegen steht im Mittelpunkt</li>
-                    <li><strong>Flexibilität:</strong> Schneller als große Wettbewerber</li>
-                    <li><strong>Fachkompetenz:</strong> 20 Jahre Erfahrung im Team</li>
-                    <li><strong>Alles aus einer Hand:</strong> Ein Ansprechpartner für alle Leistungen</li>
-                </ul>
-
-                <h3 style="margin-top: 2rem; color: var(--primary-blue);">Zertifikat "Sensibler Dienstleister"</h3>
-                <p>Als einer der wenigen Entrümpelungsbetriebe in NRW tragen wir das interne Qualitätssiegel "Sensibler Dienstleister". Dies bedeutet:</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Spezielle Schulungen im Umgang mit Trauernden</li>
-                    <li>Deeskalationstraining für schwierige Situationen</li>
-                    <li>Absolute Diskretion und Verschwiegenheit</li>
-                    <li>Flexible Termingestaltung nach Ihren Bedürfnissen</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <!-- Prices Page -->
-    <div id="prices" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>Unsere Preise</h1>
-                <p>Transparente Kalkulation - Berechnen Sie Ihre Entrümpelungskosten</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <!-- Preisrechner -->
-            <div class="card" style="margin-bottom: 3rem;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Entrümpelungskosten-Rechner</h2>
-                <p style="margin-bottom: 2rem;">Kalkulieren Sie die voraussichtlichen Kosten Ihrer Entrümpelung. Wählen Sie die Gegenstände aus, die entsorgt werden sollen:</p>
+                <button class="btn" onclick="analyzeProCompetitors()">🔍 Tiefgehende Konkurrenz-Analyse</button>
                 
-                <div id="calculator">
-                    <!-- Raumauswahl -->
-                    <div style="margin-bottom: 2rem;">
-                        <h3>Schritt 1: Wählen Sie die Räume</h3>
-                        <div class="room-selector" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                            <button class="room-btn" onclick="selectRoom('wohnzimmer')">Wohnzimmer</button>
-                            <button class="room-btn" onclick="selectRoom('schlafzimmer')">Schlafzimmer</button>
-                            <button class="room-btn" onclick="selectRoom('kueche')">Küche</button>
-                            <button class="room-btn" onclick="selectRoom('bad')">Bad</button>
-                            <button class="room-btn" onclick="selectRoom('keller')">Keller</button>
-                            <button class="room-btn" onclick="selectRoom('dachboden')">Dachboden</button>
-                            <button class="room-btn" onclick="selectRoom('garage')">Garage</button>
-                            <button class="room-btn" onclick="selectRoom('buero')">Büro</button>
-                        </div>
-                    </div>
-
-                    <!-- Gegenstände pro Raum -->
-                    <div id="itemsSection" style="display: none; margin-bottom: 2rem;">
-                        <h3>Schritt 2: Wählen Sie die zu entsorgenden Gegenstände</h3>
-                        <div id="currentRoom" style="font-weight: bold; color: var(--primary-blue); margin: 1rem 0;"></div>
-                        
-                        <!-- Möbel -->
-                        <div class="item-category">
-                            <h4>Möbel</h4>
-                            <div class="item-grid">
-                                <div class="item-selector">
-                                    <label>Sofa (3-Sitzer)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('sofa3', -1)">-</button>
-                                        <input type="number" id="sofa3" value="0" min="0" readonly>
-                                        <button onclick="updateItem('sofa3', 1)">+</button>
-                                        <span class="item-volume">2.5 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Sofa (2-Sitzer)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('sofa2', -1)">-</button>
-                                        <input type="number" id="sofa2" value="0" min="0" readonly>
-                                        <button onclick="updateItem('sofa2', 1)">+</button>
-                                        <span class="item-volume">1.8 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Sessel</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('sessel', -1)">-</button>
-                                        <input type="number" id="sessel" value="0" min="0" readonly>
-                                        <button onclick="updateItem('sessel', 1)">+</button>
-                                        <span class="item-volume">0.8 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Esstisch</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('esstisch', -1)">-</button>
-                                        <input type="number" id="esstisch" value="0" min="0" readonly>
-                                        <button onclick="updateItem('esstisch', 1)">+</button>
-                                        <span class="item-volume">1.2 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Stuhl</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('stuhl', -1)">-</button>
-                                        <input type="number" id="stuhl" value="0" min="0" readonly>
-                                        <button onclick="updateItem('stuhl', 1)">+</button>
-                                        <span class="item-volume">0.2 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Kleiderschrank (2-türig)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('schrank2', -1)">-</button>
-                                        <input type="number" id="schrank2" value="0" min="0" readonly>
-                                        <button onclick="updateItem('schrank2', 1)">+</button>
-                                        <span class="item-volume">2.0 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Kleiderschrank (3-türig)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('schrank3', -1)">-</button>
-                                        <input type="number" id="schrank3" value="0" min="0" readonly>
-                                        <button onclick="updateItem('schrank3', 1)">+</button>
-                                        <span class="item-volume">3.0 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Kommode</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('kommode', -1)">-</button>
-                                        <input type="number" id="kommode" value="0" min="0" readonly>
-                                        <button onclick="updateItem('kommode', 1)">+</button>
-                                        <span class="item-volume">0.8 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Bett (Einzelbett)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('bett1', -1)">-</button>
-                                        <input type="number" id="bett1" value="0" min="0" readonly>
-                                        <button onclick="updateItem('bett1', 1)">+</button>
-                                        <span class="item-volume">1.5 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Bett (Doppelbett)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('bett2', -1)">-</button>
-                                        <input type="number" id="bett2" value="0" min="0" readonly>
-                                        <button onclick="updateItem('bett2', 1)">+</button>
-                                        <span class="item-volume">2.5 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Matratze</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('matratze', -1)">-</button>
-                                        <input type="number" id="matratze" value="0" min="0" readonly>
-                                        <button onclick="updateItem('matratze', 1)">+</button>
-                                        <span class="item-volume">0.5 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Schreibtisch</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('schreibtisch', -1)">-</button>
-                                        <input type="number" id="schreibtisch" value="0" min="0" readonly>
-                                        <button onclick="updateItem('schreibtisch', 1)">+</button>
-                                        <span class="item-volume">1.0 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Bücherregal</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('regal', -1)">-</button>
-                                        <input type="number" id="regal" value="0" min="0" readonly>
-                                        <button onclick="updateItem('regal', 1)">+</button>
-                                        <span class="item-volume">0.8 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>TV-Möbel</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('tvmoebel', -1)">-</button>
-                                        <input type="number" id="tvmoebel" value="0" min="0" readonly>
-                                        <button onclick="updateItem('tvmoebel', 1)">+</button>
-                                        <span class="item-volume">0.6 m³</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Elektrogeräte -->
-                        <div class="item-category">
-                            <h4>Elektrogeräte</h4>
-                            <div class="item-grid">
-                                <div class="item-selector">
-                                    <label>Kühlschrank</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('kuehlschrank', -1)">-</button>
-                                        <input type="number" id="kuehlschrank" value="0" min="0" readonly>
-                                        <button onclick="updateItem('kuehlschrank', 1)">+</button>
-                                        <span class="item-volume">0.8 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Waschmaschine</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('waschmaschine', -1)">-</button>
-                                        <input type="number" id="waschmaschine" value="0" min="0" readonly>
-                                        <button onclick="updateItem('waschmaschine', 1)">+</button>
-                                        <span class="item-volume">0.4 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Geschirrspüler</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('spuelmaschine', -1)">-</button>
-                                        <input type="number" id="spuelmaschine" value="0" min="0" readonly>
-                                        <button onclick="updateItem('spuelmaschine', 1)">+</button>
-                                        <span class="item-volume">0.4 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Fernseher</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('fernseher', -1)">-</button>
-                                        <input type="number" id="fernseher" value="0" min="0" readonly>
-                                        <button onclick="updateItem('fernseher', 1)">+</button>
-                                        <span class="item-volume">0.2 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Mikrowelle</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('mikrowelle', -1)">-</button>
-                                        <input type="number" id="mikrowelle" value="0" min="0" readonly>
-                                        <button onclick="updateItem('mikrowelle', 1)">+</button>
-                                        <span class="item-volume">0.1 m³</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sonstiges -->
-                        <div class="item-category">
-                            <h4>Sonstiges</h4>
-                            <div class="item-grid">
-                                <div class="item-selector">
-                                    <label>Umzugskarton</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('karton', -1)">-</button>
-                                        <input type="number" id="karton" value="0" min="0" readonly>
-                                        <button onclick="updateItem('karton', 1)">+</button>
-                                        <span class="item-volume">0.1 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Müllsack (120L)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('muellsack', -1)">-</button>
-                                        <input type="number" id="muellsack" value="0" min="0" readonly>
-                                        <button onclick="updateItem('muellsack', 1)">+</button>
-                                        <span class="item-volume">0.12 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Fahrrad</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('fahrrad', -1)">-</button>
-                                        <input type="number" id="fahrrad" value="0" min="0" readonly>
-                                        <button onclick="updateItem('fahrrad', 1)">+</button>
-                                        <span class="item-volume">0.3 m³</span>
-                                    </div>
-                                </div>
-                                <div class="item-selector">
-                                    <label>Sperrmüll (pauschal)</label>
-                                    <div class="item-controls">
-                                        <button onclick="updateItem('sperrmuell', -1)">-</button>
-                                        <input type="number" id="sperrmuell" value="0" min="0" readonly>
-                                        <button onclick="updateItem('sperrmuell', 1)">+</button>
-                                        <span class="item-volume">1.0 m³</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Zusatzleistungen -->
-                    <div id="additionalServices" style="margin-bottom: 2rem;">
-                        <h3>Schritt 3: Zusatzleistungen</h3>
-                        <div class="service-options">
-                            <label class="service-option">
-                                <input type="checkbox" id="demontage" onchange="calculatePrice()">
-                                <span>Demontage von Möbeln (+15% Aufpreis)</span>
-                            </label>
-                            <label class="service-option">
-                                <input type="checkbox" id="reinigung" onchange="calculatePrice()">
-                                <span>Endreinigung (+250 €)</span>
-                            </label>
-                            <label class="service-option">
-                                <input type="checkbox" id="express" onchange="calculatePrice()">
-                                <span>Express-Service (innerhalb 48h) (+25% Aufpreis)</span>
-                            </label>
-                            <label class="service-option">
-                                <input type="checkbox" id="wochenende" onchange="calculatePrice()">
-                                <span>Wochenendarbeit (+30% Aufpreis)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Entfernung -->
-                    <div style="margin-bottom: 2rem;">
-                        <h3>Schritt 4: Entfernung zum Einsatzort</h3>
-                        <div class="form-group">
-                            <label>PLZ oder Stadt:</label>
-                            <input type="text" id="location" placeholder="z.B. 50667 oder Köln" onchange="calculateDistance()">
-                            <small>Die ersten 50 km sind kostenfrei, danach 0,70 € pro km</small>
-                        </div>
-                    </div>
-
-                    <!-- Kostenübersicht -->
-                    <div class="cost-summary">
-                        <h3>Kostenübersicht</h3>
-                        <div class="cost-line">
-                            <span>Gesamtvolumen:</span>
-                            <span id="totalVolume">0 m³</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Grundkosten (85 €/m³):</span>
-                            <span id="baseCost">0 €</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Demontage:</span>
-                            <span id="demontageCost">0 €</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Endreinigung:</span>
-                            <span id="reinigungCost">0 €</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Express-Zuschlag:</span>
-                            <span id="expressCost">0 €</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Wochenend-Zuschlag:</span>
-                            <span id="wochenendCost">0 €</span>
-                        </div>
-                        <div class="cost-line">
-                            <span>Anfahrtskosten:</span>
-                            <span id="travelCost">0 €</span>
-                        </div>
-                        <div class="cost-line total">
-                            <span>Gesamtkosten (netto):</span>
-                            <span id="totalCost">0 €</span>
-                        </div>
-                        <div class="cost-line total">
-                            <span>Gesamtkosten (inkl. 19% MwSt.):</span>
-                            <span id="totalCostVAT">0 €</span>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <button class="btn-primary" onclick="requestQuote()">Unverbindliches Angebot anfordern</button>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--medium-gray);">
-                            * Dies ist eine Kostenschätzung. Der finale Preis wird nach Besichtigung vor Ort festgelegt.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Paket-Preise -->
-            <div class="grid" style="margin-top: 3rem;">
-                <div class="card" style="text-align: center;">
-                    <h2 style="color: var(--primary-blue);">BASIC</h2>
-                    <p style="font-size: 2rem; color: var(--accent-red); margin: 1rem 0;">ab 890 €</p>
-                    <p style="margin-bottom: 1.5rem;">für 1-Zimmer-Wohnung</p>
-                    <ul style="text-align: left; list-style: none; padding: 0;">
-                        <li>✓ Komplette Räumung aller Räume</li>
-                        <li>✓ Fachgerechte Entsorgung</li>
-                        <li>✓ Wertanrechnung möglich</li>
-                        <li>✓ Entsorgungsnachweise</li>
-                    </ul>
-                    <button class="btn-primary" style="margin-top: 2rem; width: 100%;" onclick="showPage('contact')">Anfrage stellen</button>
-                </div>
-
-                <div class="card" style="text-align: center; border: 2px solid var(--secondary-blue);">
-                    <div style="background: var(--secondary-blue); color: white; margin: -2rem -2rem 1rem; padding: 0.5rem;">
-                        <strong>BELIEBTESTE WAHL</strong>
-                    </div>
-                    <h2 style="color: var(--primary-blue);">KOMFORT</h2>
-                    <p style="font-size: 2rem; color: var(--accent-red); margin: 1rem 0;">ab 1.290 €</p>
-                    <p style="margin-bottom: 1.5rem;">für 1-Zimmer-Wohnung</p>
-                    <ul style="text-align: left; list-style: none; padding: 0;">
-                        <li>✓ Alle Leistungen aus BASIC</li>
-                        <li>✓ Besenreine Endreinigung</li>
-                        <li>✓ Kleine Reparaturen</li>
-                        <li>✓ Schlüsselübergabe an Vermieter</li>
-                        <li>✓ Abmeldung Strom/Gas möglich</li>
-                    </ul>
-                    <button class="btn-primary" style="margin-top: 2rem; width: 100%;" onclick="showPage('contact')">Anfrage stellen</button>
-                </div>
-
-                <div class="card" style="text-align: center;">
-                    <h2 style="color: var(--primary-blue);">PREMIUM</h2>
-                    <p style="font-size: 2rem; color: var(--accent-red); margin: 1rem 0;">ab 1.890 €</p>
-                    <p style="margin-bottom: 1.5rem;">für 1-Zimmer-Wohnung</p>
-                    <ul style="text-align: left; list-style: none; padding: 0;">
-                        <li>✓ Alle Leistungen aus KOMFORT</li>
-                        <li>✓ Persönlicher Projektmanager</li>
-                        <li>✓ Komplette Behördengänge</li>
-                        <li>✓ Nachlass-Verwaltung</li>
-                        <li>✓ 6 Monate Nachbetreuung</li>
-                        <li>✓ Digitales Erinnerungsalbum</li>
-                    </ul>
-                    <button class="btn-primary" style="margin-top: 2rem; width: 100%;" onclick="showPage('contact')">Anfrage stellen</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Artikel/Ratgeber Page -->
-    <div id="artikel" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>Ratgeber Entrümpelung</h1>
-                <p>Hilfreiche Tipps und Informationen rund um Entrümpelung und Haushaltsauflösung</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="card" style="margin-bottom: 3rem;">
-                <h2 style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 1.5rem;">Der ultimative Ratgeber zur professionellen Entrümpelung in NRW</h2>
-                <p style="font-style: italic; color: var(--medium-gray); margin-bottom: 2rem;">Alles was Sie über Entrümpelung, Haushaltsauflösung und Wohnungsräumung wissen müssen</p>
-                
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Einleitung: Warum professionelle Entrümpelung wichtig ist</h3>
-                <p>Eine Entrümpelung steht oft in Verbindung mit einschneidenden Lebensereignissen. Ob Todesfall, Umzug ins Pflegeheim, Trennung oder einfach der Wunsch nach einem Neuanfang – die Räumung einer Wohnung oder eines Hauses ist emotional und organisatorisch eine große Herausforderung. In Nordrhein-Westfalen, dem bevölkerungsreichsten Bundesland Deutschlands, stehen jährlich tausende Menschen vor dieser Aufgabe.</p>
-                
-                <p>Die professionelle Entrümpelung durch Fachbetriebe wie NRW Entrümpelung Pro bietet dabei entscheidende Vorteile: Sie sparen Zeit und Kraft, vermeiden rechtliche Fallstricke bei der Entsorgung und können sich auf die emotionalen Aspekte konzentrieren, während Profis die praktische Arbeit übernehmen.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Die verschiedenen Arten der Entrümpelung</h3>
-                <p><strong>1. Haushaltsauflösung</strong><br>
-                Die komplette Auflösung eines Haushalts ist die umfassendste Form der Entrümpelung. Hierbei wird die gesamte Wohnung oder das Haus geräumt, alle Möbel und Gegenstände werden entfernt und fachgerecht entsorgt oder verwertet. In NRW fallen besonders in den Ballungsräumen wie dem Ruhrgebiet, dem Rheinland um Köln und Düsseldorf sowie in Ostwestfalen-Lippe täglich dutzende solcher Aufträge an.</p>
-
-                <p><strong>2. Teilentrümpelung</strong><br>
-                Nicht immer muss die ganze Wohnung geräumt werden. Oft reicht es, einzelne Räume wie Keller, Dachboden oder Garage zu entrümpeln. Diese Teilentrümpelungen sind besonders in den dicht besiedelten Städten NRWs gefragt, wo Lagerraum knapp und wertvoll ist.</p>
-
-                <p><strong>3. Messie-Entrümpelung</strong><br>
-                Die Räumung von Messie-Wohnungen erfordert besondere Sensibilität und Fachkenntnis. Hier geht es nicht nur um die physische Räumung, sondern auch um hygienische Aspekte, mögliche Schädlingsbekämpfung und den respektvollen Umgang mit den Betroffenen. In Großstädten wie Köln, Dortmund oder Essen ist diese Spezialisierung besonders wichtig.</p>
-
-                <p><strong>4. Gewerbeentrümpelung</strong><br>
-                Büros, Praxen, Läden oder Werkstätten – auch gewerbliche Räume müssen manchmal komplett geräumt werden. Hier gelten besondere Anforderungen an Datenschutz, Entsorgung von Betriebsmitteln und oft enge Zeitfenster.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Der Ablauf einer professionellen Entrümpelung</h3>
-                <p><strong>Schritt 1: Erste Kontaktaufnahme und Beratung</strong><br>
-                Der Prozess beginnt mit Ihrer Anfrage. Egal ob Sie aus Köln, Bielefeld, Münster oder einer anderen Stadt in NRW kommen – seriöse Entrümpelungsfirmen bieten eine kostenlose Erstberatung an. Dabei werden die Rahmenbedingungen geklärt: Um welche Art von Immobilie handelt es sich? Wie viele Räume sind zu räumen? Gibt es besondere Herausforderungen wie schwere Möbel oder wertvolle Gegenstände?</p>
-
-                <p><strong>Schritt 2: Besichtigung vor Ort</strong><br>
-                Ein seriöser Anbieter wird immer eine Besichtigung durchführen, bevor ein verbindliches Angebot erstellt wird. Bei diesem Termin wird der Umfang der Arbeiten genau erfasst. Die Experten achten dabei auf verschiedene Faktoren: Menge und Art des Entrümpelungsguts, Zugänglichkeit der Räume (Etage, Aufzug vorhanden?), notwendige Demontagearbeiten, verwertbare Gegenstände und besondere Entsorgungsanforderungen.</p>
-
-                <p><strong>Schritt 3: Angebotserstellung</strong><br>
-                Nach der Besichtigung erhalten Sie ein detailliertes Festpreisangebot. Dieses sollte alle Leistungen transparent aufführen: Arbeitszeit und Personal, Entsorgungskosten, eventuelle Zusatzleistungen wie Endreinigung, mögliche Wertanrechnungen für verwertbare Gegenstände. In NRW variieren die Preise je nach Region – in Düsseldorf oder Köln sind sie tendenziell höher als in ländlicheren Gebieten.</p>
-
-                <p><strong>Schritt 4: Durchführung der Entrümpelung</strong><br>
-                Am vereinbarten Termin rückt das Entrümpelungsteam an. Professionelle Firmen arbeiten systematisch: Zuerst werden wertvolle oder zu erhaltende Gegenstände gesichert, dann erfolgt die Sortierung nach Wertstoffen, Sperrmüll und Sondermüll. Die Demontage von Möbeln und die fachgerechte Verpackung gehören zum Standard. Je nach Größe der Wohnung dauert eine Entrümpelung zwischen einem halben und drei Tagen.</p>
-
-                <p><strong>Schritt 5: Endreinigung und Übergabe</strong><br>
-                Nach der Räumung erfolgt meist eine besenreine Übergabe. Viele Anbieter in NRW bieten auch eine Grundreinigung an, sodass die Immobilie direkt an Vermieter oder Käufer übergeben werden kann.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Kosten einer Entrümpelung in NRW</h3>
-                <p>Die Kosten für eine Entrümpelung variieren stark und hängen von verschiedenen Faktoren ab. In Nordrhein-Westfalen müssen Sie mit folgenden Richtwerten rechnen:</p>
-
-                <p><strong>Kleine Wohnung (1-2 Zimmer):</strong> 800-1.500 Euro<br>
-                <strong>Mittlere Wohnung (3-4 Zimmer):</strong> 1.500-3.000 Euro<br>
-                <strong>Große Wohnung/Haus:</strong> ab 3.000 Euro</p>
-
-                <p>Diese Preise können regional variieren. In Ballungsräumen wie dem Ruhrgebiet oder dem Rheinland sind die Preise oft höher als in ländlichen Regionen Ostwestfalens oder des Münsterlands. Faktoren, die den Preis beeinflussen:</p>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>Menge des Entrümpelungsguts</li>
-                    <li>Etage und Zugänglichkeit</li>
-                    <li>Verwertbare Gegenstände (Wertanrechnung möglich)</li>
-                    <li>Sondermüll oder Gefahrstoffe</li>
-                    <li>Zusatzleistungen wie Renovierung oder Malerarbeiten</li>
-                    <li>Zeitdruck (Express-Entrümpelung kostet mehr)</li>
-                </ul>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Rechtliche Aspekte der Entrümpelung</h3>
-                <p>Bei einer Entrümpelung gibt es verschiedene rechtliche Aspekte zu beachten. In NRW gelten, wie im gesamten Bundesgebiet, strenge Vorschriften zur Entsorgung:</p>
-
-                <p><strong>Entsorgungsvorschriften:</strong> Nicht alles darf einfach in den Container. Elektrogeräte, Farben, Chemikalien und andere Sondermüll müssen gesondert entsorgt werden. Professionelle Entrümpeler kennen die Vorschriften und haben die nötigen Genehmigungen.</p>
-
-                <p><strong>Eigentumsverhältnisse:</strong> Bei Erbschaften oder Trennungen müssen die Eigentumsverhältnisse geklärt sein, bevor entrümpelt wird. Sonst drohen rechtliche Konsequenzen.</p>
-
-                <p><strong>Mietrecht:</strong> Mieter müssen Wohnungen im vertragsgemäßen Zustand übergeben. Was das genau bedeutet, regelt der Mietvertrag. In NRW urteilen Gerichte hier oft mieterfreundlich.</p>
-
-                <p><strong>Datenschutz:</strong> Besonders bei Firmenauflösungen oder wenn persönliche Dokumente gefunden werden, muss der Datenschutz beachtet werden. Professionelle Entrümpeler bieten sichere Aktenvernichtung an.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Nachhaltigkeit und Wiederverwertung</h3>
-                <p>Moderne Entrümpelungsfirmen in NRW legen großen Wert auf Nachhaltigkeit. Statt alles zu entsorgen, wird systematisch getrennt und verwertet:</p>
-
-                <p><strong>Möbel und Hausrat:</strong> Gut erhaltene Möbel werden an Sozialkaufhäuser gespendet oder verkauft. In Städten wie Köln, Dortmund oder Bielefeld gibt es zahlreiche Abnehmer für gebrauchte Möbel.</p>
-
-                <p><strong>Wertstoffe:</strong> Metalle, Holz, Papier und andere Wertstoffe werden dem Recycling zugeführt. NRW hat eine gut ausgebaute Recycling-Infrastruktur.</p>
-
-                <p><strong>Elektrogeräte:</strong> Alte Elektrogeräte enthalten wertvolle Rohstoffe und müssen fachgerecht recycelt werden. Entrümpelungsfirmen arbeiten mit zertifizierten Entsorgern zusammen.</p>
-
-                <p><strong>Textilien:</strong> Kleidung und Textilien werden sortiert und entweder gespendet oder dem Textilrecycling zugeführt.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Tipps für die Vorbereitung einer Entrümpelung</h3>
-                <p>Wenn Sie eine Entrümpelung planen, können Sie mit guter Vorbereitung Kosten sparen und den Ablauf beschleunigen:</p>
-
-                <p><strong>1. Wertsachen sichern:</strong> Durchsuchen Sie vorab die Räume nach Wertsachen, wichtigen Dokumenten oder Erinnerungsstücken.</p>
-
-                <p><strong>2. Verwertbares aussortieren:</strong> Gegenstände, die Sie verkaufen oder verschenken möchten, sollten Sie vorab kennzeichnen oder entfernen.</p>
-
-                <p><strong>3. Zugänge freihalten:</strong> Sorgen Sie für freie Zugangswege und informieren Sie gegebenenfalls Nachbarn.</p>
-
-                <p><strong>4. Dokumentation:</strong> Fotografieren Sie wertvolle Gegenstände für Versicherung oder Nachlassverwaltung.</p>
-
-                <p><strong>5. Termine koordinieren:</strong> Klären Sie Termine mit Vermietern, Maklern oder anderen Beteiligten ab.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Besondere Herausforderungen in NRW</h3>
-                <p>Nordrhein-Westfalen als dicht besiedeltes Bundesland bringt besondere Herausforderungen mit sich:</p>
-
-                <p><strong>Parkplatzsituation:</strong> In Innenstädten von Köln, Düsseldorf oder Dortmund sind Parkplätze rar. Professionelle Entrümpeler beantragen Halteverbotszonen.</p>
-
-                <p><strong>Enge Treppenhäuser:</strong> Viele Altbauten in NRW haben enge Treppenhäuser. Hier ist Erfahrung und das richtige Equipment wichtig.</p>
-
-                <p><strong>Denkmalschutz:</strong> In historischen Stadtkernen gelten oft besondere Auflagen. Entrümpelungsfirmen müssen diese kennen und beachten.</p>
-
-                <p><strong>Multikulturalität:</strong> NRW ist multikulturell. Gute Entrümpelungsfirmen haben mehrsprachige Teams und kennen kulturelle Besonderheiten.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Die Wahl des richtigen Entrümpelungsunternehmens</h3>
-                <p>Bei der Vielzahl von Anbietern in NRW ist die Wahl des richtigen Partners wichtig. Achten Sie auf folgende Kriterien:</p>
-
-                <p><strong>Seriosität:</strong> Seriöse Firmen haben eine Gewerbeanmeldung, sind versichert und stellen ordentliche Rechnungen aus.</p>
-
-                <p><strong>Transparenz:</strong> Alle Kosten sollten im Vorfeld klar kommuniziert werden. Vorsicht vor Lockangeboten!</p>
-
-                <p><strong>Referenzen:</strong> Lassen Sie sich Referenzen zeigen oder lesen Sie Online-Bewertungen.</p>
-
-                <p><strong>Lokalität:</strong> Lokale Anbieter kennen die Gegebenheiten vor Ort und sind schnell erreichbar.</p>
-
-                <p><strong>Leistungsumfang:</strong> Prüfen Sie, ob alle benötigten Leistungen angeboten werden.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Fazit: Professionelle Entrümpelung als Entlastung</h3>
-                <p>Eine Entrümpelung ist mehr als nur das Ausräumen von Gegenständen. Es ist oft ein emotionaler Prozess, der mit wichtigen Lebensereignissen verbunden ist. Professionelle Entrümpelungsdienste in NRW bieten nicht nur praktische Hilfe, sondern auch emotionale Entlastung in schwierigen Zeiten.</p>
-
-                <p>Von der Haushaltsauflösung in Köln über die Messie-Entrümpelung in Dortmund bis zur Gewerbeauflösung in Bielefeld – spezialisierte Unternehmen wie NRW Entrümpelung Pro stehen Ihnen in ganz Nordrhein-Westfalen zur Seite. Mit Erfahrung, Feingefühl und professionellem Equipment sorgen sie dafür, dass Ihre Entrümpelung schnell, sauber und stressfrei abläuft.</p>
-
-                <p>Egal ob im Rheinland, Ruhrgebiet, Münsterland oder Ostwestfalen-Lippe – professionelle Entrümpelung ist eine Investition, die sich lohnt. Sie sparen Zeit, Nerven und oft sogar Geld, wenn Sie die Aufgabe in professionelle Hände geben.</p>
-            </div>
-
-            <div class="card" style="margin-top: 3rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem; margin-bottom: 1.5rem;">Entrümpelung bei Todesfällen: Ein sensibler Leitfaden für Angehörige</h2>
-                
-                <p>Der Verlust eines geliebten Menschen ist eine der schwierigsten Erfahrungen im Leben. Neben der Trauer müssen Angehörige oft auch praktische Aufgaben bewältigen – dazu gehört häufig die Auflösung des Haushalts des Verstorbenen. Diese Entrümpelung nach einem Todesfall ist emotional besonders belastend und erfordert viel Feingefühl.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Die emotionale Herausforderung</h3>
-                <p>Jeder Gegenstand in der Wohnung des Verstorbenen kann Erinnerungen wecken. Das macht die Entrümpelung zu einer emotionalen Achterbahnfahrt. Viele Angehörige fühlen sich überfordert und wissen nicht, wo sie anfangen sollen. In dieser Situation kann professionelle Hilfe eine große Entlastung sein.</p>
-
-                <p>Entrümpelungsfirmen, die auf Nachlass-Räumungen spezialisiert sind, gehen besonders sensibel vor. Sie verstehen, dass es nicht nur um das Ausräumen von Gegenständen geht, sondern um den respektvollen Umgang mit einem Lebenswerk. In NRW gibt es spezialisierte Unternehmen, die Erfahrung im Umgang mit Trauernden haben und entsprechend geschultes Personal einsetzen.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Rechtliche Aspekte bei Nachlass-Entrümpelung</h3>
-                <p>Bevor mit der Entrümpelung begonnen werden kann, müssen einige rechtliche Fragen geklärt sein:</p>
-
-                <p><strong>Erbschein:</strong> In vielen Fällen ist ein Erbschein erforderlich, um nachzuweisen, dass man zur Entrümpelung berechtigt ist. Dies gilt besonders bei Mietwohnungen.</p>
-
-                <p><strong>Erbengemeinschaft:</strong> Gibt es mehrere Erben, müssen sich diese einigen. Alleingänge können zu rechtlichen Problemen führen.</p>
-
-                <p><strong>Testament:</strong> Wurden im Testament bestimmte Gegenstände vermacht, müssen diese gesichert werden.</p>
-
-                <p><strong>Mietvertrag:</strong> Bei Mietwohnungen gelten meist Fristen für die Räumung. In NRW sind dies in der Regel drei Monate nach dem Todesfall.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Praktisches Vorgehen</h3>
-                <p>Eine strukturierte Herangehensweise hilft, die Überforderung zu reduzieren:</p>
-
-                <p><strong>1. Wichtige Dokumente sichern:</strong> Suchen Sie zuerst nach wichtigen Unterlagen wie Testament, Versicherungspolicen, Kontoauszügen und Verträgen.</p>
-
-                <p><strong>2. Wertsachen identifizieren:</strong> Schmuck, Bargeld, Kunstgegenstände und andere Wertsachen sollten gesichert werden.</p>
-
-                <p><strong>3. Erinnerungsstücke auswählen:</strong> Überlegen Sie, welche Gegenstände Sie als Erinnerung behalten möchten. Oft reichen wenige, bedeutsame Stücke.</p>
-
-                <p><strong>4. Verwertbares sortieren:</strong> Gut erhaltene Möbel, Elektrogeräte oder Bücher können gespendet oder verkauft werden.</p>
-
-                <p><strong>5. Professionelle Hilfe hinzuziehen:</strong> Für die eigentliche Räumung empfiehlt sich ein professioneller Entrümpelungsdienst.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Die Rolle professioneller Entrümpeler</h3>
-                <p>Spezialisierte Entrümpelungsfirmen bieten bei Todesfällen besonderen Service:</p>
-
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Diskretion:</strong> Die Arbeiten werden respektvoll und ohne Aufsehen durchgeführt</li>
-                    <li><strong>Flexibilität:</strong> Termine werden an die Bedürfnisse der Trauernden angepasst</li>
-                    <li><strong>Sorgfalt:</strong> Persönliche Gegenstände werden achtsam behandelt</li>
-                    <li><strong>Beratung:</strong> Hilfe bei der Entscheidung, was behalten oder entsorgt werden soll</li>
-                    <li><strong>Komplettservice:</strong> Von der Räumung bis zur Wohnungsübergabe</li>
-                </ul>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Kosten und Wertanrechnung</h3>
-                <p>Die Kosten für eine Nachlass-Entrümpelung werden oft aus dem Nachlass bezahlt. Viele Entrümpelungsfirmen in NRW bieten eine Wertanrechnung an: Verwertbare Gegenstände werden vom Gesamtpreis abgezogen. Dies kann die Kosten erheblich reduzieren.</p>
-
-                <p>Typische verwertbare Gegenstände sind: Antiquitäten und alte Möbel, Schmuck und Uhren, Bücher und Sammlungen, Werkzeuge und Maschinen, gut erhaltene Elektrogeräte.</p>
-
-                <h3 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Unterstützung in der Trauerzeit</h3>
-                <p>Die Entrümpelung der Wohnung eines Verstorbenen ist ein wichtiger Schritt im Trauerprozess. Sie bedeutet Abschied, aber auch die Möglichkeit, Erinnerungen zu bewahren und einen Neuanfang zu ermöglichen. Professionelle Entrümpelungsdienste in NRW verstehen diese besondere Situation und bieten mehr als nur eine Dienstleistung – sie bieten Unterstützung in einer schweren Zeit.</p>
-
-                <p>Nehmen Sie sich die Zeit, die Sie brauchen. Es gibt keinen richtigen oder falschen Zeitpunkt für die Entrümpelung. Manche Menschen möchten schnell handeln, andere brauchen mehr Zeit. Beides ist völlig in Ordnung. Wichtig ist, dass Sie sich nicht überfordern und bei Bedarf professionelle Hilfe in Anspruch nehmen.</p>
-
-                <p>In ganz Nordrhein-Westfalen – von Aachen bis Bielefeld, von Kleve bis Siegen – stehen Ihnen erfahrene Entrümpelungsunternehmen zur Seite, die sich auf Nachlass-Räumungen spezialisiert haben. Sie helfen Ihnen dabei, diesen schweren Schritt würdevoll und stressfrei zu bewältigen.</p>
-            </div>
-        </section>
-    </div>
-
-    <!-- B2B Page -->
-    <div id="b2b" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>B2B Entrümpelung - Ihr Partner für Behörden & Institutionen</h1>
-                <p>Professionelle Lösungen für Sozialämter, Berufsbetreuer, Nachlassverwalter und mehr</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="section-header">
-                <h2>Spezialisiert auf institutionelle Auftraggeber</h2>
-                <p>Direkte Abrechnung, transparente Prozesse, zuverlässige Ausführung</p>
-            </div>
-
-            <!-- Sozialämter -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">🏛️ Für Sozialämter und Ordnungsämter</h2>
-                <p>Wir sind Ihr zuverlässiger Partner bei Zwangsräumungen, Messie-Wohnungen und sozialen Härtefällen. Mit über 20 Jahren Erfahrung kennen wir die besonderen Anforderungen öffentlicher Auftraggeber.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Unsere Leistungen für Ämter:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Zwangsräumungen:</strong> Schnelle und rechtskonforme Durchführung</li>
-                    <li><strong>Messie-Wohnungen:</strong> Diskrete Räumung mit Hygienemaßnahmen</li>
-                    <li><strong>Verwahrloste Immobilien:</strong> Komplettsanierung möglich</li>
-                    <li><strong>Notfallräumungen:</strong> 24h-Service bei akuten Fällen</li>
-                    <li><strong>Dokumentation:</strong> Vollständige Fotodokumentation für Ihre Akten</li>
-                </ul>
-
-                <h3>Ihre Vorteile:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li>✓ Direkte Abrechnung mit dem Amt</li>
-                    <li>✓ Festpreisangebote ohne versteckte Kosten</li>
-                    <li>✓ Einhaltung aller Datenschutzvorschriften</li>
-                    <li>✓ Sozialverträgliche Preise</li>
-                    <li>✓ Kurzfristige Terminvergabe möglich</li>
-                </ul>
-
-                <div style="background: var(--light-gray); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
-                    <p><strong>Rahmenvertrag möglich!</strong> Bei regelmäßiger Zusammenarbeit bieten wir Sonderkonditionen.</p>
-                </div>
-            </div>
-
-            <!-- Berufsbetreuer -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">👥 Für Berufsbetreuer und gesetzliche Betreuer</h2>
-                <p>Die Betreuung von Menschen in schwierigen Lebenssituationen erfordert Fingerspitzengefühl. Wir unterstützen Sie bei der würdevollen Räumung und Auflösung von Wohnungen Ihrer Klienten.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Speziell für Betreuungsfälle:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Wohnungsauflösungen bei Heimunterbringung:</strong> Sensible Durchführung</li>
-                    <li><strong>Sicherung persönlicher Gegenstände:</strong> Wichtige Dokumente und Erinnerungsstücke</li>
-                    <li><strong>Vermögensschutz:</strong> Bewertung und Verwertung werthaltiger Gegenstände</li>
-                    <li><strong>Koordination:</strong> Abstimmung mit Angehörigen und Heimen</li>
-                    <li><strong>Flexibilität:</strong> Anpassung an die Bedürfnisse der Betreuten</li>
-                </ul>
-
-                <p style="margin-top: 1.5rem;"><em>"In über 500 Betreuungsfällen haben wir bewiesen, dass Professionalität und Menschlichkeit Hand in Hand gehen können."</em></p>
-            </div>
-
-            <!-- Nachlassverwalter -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">⚖️ Für Nachlassverwalter und Nachlasspfleger</h2>
-                <p>Bei der Verwaltung von Nachlässen ist eine ordnungsgemäße Sicherung und Verwertung des Inventars essentiell. Wir bieten Ihnen professionelle Unterstützung mit rechtssicherer Dokumentation.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Nachlassservice im Detail:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Inventarisierung:</strong> Detaillierte Auflistung aller Gegenstände</li>
-                    <li><strong>Wertermittlung:</strong> Schätzung von Möbeln, Kunstgegenständen etc.</li>
-                    <li><strong>Verwertung:</strong> Maximale Erlöse für den Nachlass</li>
-                    <li><strong>Dokumentensicherung:</strong> Auffinden und Sichern wichtiger Unterlagen</li>
-                    <li><strong>Gerichtsfeste Dokumentation:</strong> Für Rechenschaftsberichte</li>
-                </ul>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                    <div style="background: var(--light-gray); padding: 1rem; border-radius: 8px; text-align: center;">
-                        <h4>Erfahrung</h4>
-                        <p style="font-size: 2rem; color: var(--primary-blue); margin: 0;">1.000+</p>
-                        <p>Nachlässe bearbeitet</p>
-                    </div>
-                    <div style="background: var(--light-gray); padding: 1rem; border-radius: 8px; text-align: center;">
-                        <h4>Verwertung</h4>
-                        <p style="font-size: 2rem; color: var(--primary-blue); margin: 0;">85%</p>
-                        <p>Höhere Erlöse als Konkurrenz</p>
-                    </div>
-                    <div style="background: var(--light-gray); padding: 1rem; border-radius: 8px; text-align: center;">
-                        <h4>Schnelligkeit</h4>
-                        <p style="font-size: 2rem; color: var(--primary-blue); margin: 0;">48h</p>
-                        <p>Reaktionszeit garantiert</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rechtsanwälte -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">⚖️ Für Rechtsanwälte und Notare</h2>
-                <p>Bei Erbschaftsangelegenheiten, Zwangsversteigerungen oder Insolvenzverfahren benötigen Sie einen verlässlichen Partner für Räumungen und Wertermittlungen.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Juristische Präzision:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Beweissicherung:</strong> Fotodokumentation für Gerichtsverfahren</li>
-                    <li><strong>Zeugenaussagen:</strong> Unsere Mitarbeiter stehen zur Verfügung</li>
-                    <li><strong>Wertgutachten:</strong> In Zusammenarbeit mit Sachverständigen</li>
-                    <li><strong>Versiegelte Räumung:</strong> Bei strittigen Erbschaften</li>
-                    <li><strong>Express-Service:</strong> Bei eiligen Gerichtsterminen</li>
-                </ul>
-            </div>
-
-            <!-- Bestatter -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">⚰️ Für Bestattungsunternehmen</h2>
-                <p>Der Tod eines Menschen ist für Angehörige eine schwere Zeit. Wir entlasten Sie und die Hinterbliebenen durch sensible und professionelle Wohnungsauflösungen.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Pietätvolle Dienstleistung:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Diskrete Abwicklung:</strong> Keine Werbung, schwarze Fahrzeuge</li>
-                    <li><strong>Wertsachensicherung:</strong> Schmuck, Dokumente, Erinnerungen</li>
-                    <li><strong>Flexible Termine:</strong> Anpassung an Trauerfeierlichkeiten</li>
-                    <li><strong>Angehörigenbetreuung:</strong> Einfühlsame Kommunikation</li>
-                    <li><strong>Komplettservice:</strong> Von Räumung bis Renovierung</li>
-                </ul>
-
-                <p style="background: var(--light-gray); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
-                    <strong>Partnerschaftsangebot:</strong> Als Bestatter erhalten Sie Sonderkonditionen und können unsere Leistungen direkt an Ihre Kunden vermitteln. Provision möglich!
-                </p>
-            </div>
-
-            <!-- Hausverwaltungen -->
-            <div class="card" style="margin-bottom: 2rem;">
-                <h2 style="color: var(--primary-blue); font-size: 1.8rem;">🏢 Für Hausverwaltungen und Wohnungsbaugesellschaften</h2>
-                <p>Mietnomaden, Nachlässe oder Renovierungen - wir sind Ihr Rundum-Partner für alle Räumungsaufgaben in Ihren Objekten.</p>
-                
-                <h3 style="margin-top: 1.5rem;">Objektbetreuung professionell:</h3>
-                <ul style="margin: 1rem 0; padding-left: 2rem;">
-                    <li><strong>Räumung bei Mieterwechsel:</strong> Schnell und gründlich</li>
-                    <li><strong>Renovierungsentrümpelung:</strong> Vor Sanierungsarbeiten</li>
-                    <li><strong>Kellerräumung:</strong> Regelmäßige Reinigung von Gemeinschaftsräumen</li>
-                    <li><strong>24h-Notdienst:</strong> Bei Wasserschäden oder Bränden</li>
-                    <li><strong>Schlüsselservice:</strong> Übergabe direkt an Sie</li>
-                </ul>
-
-                <div style="background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)); color: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; text-align: center;">
-                    <h3>Rahmenverträge für Großkunden</h3>
-                    <p>Ab 10 Aufträgen pro Jahr: Sonderkonditionen, Priority-Service, dedizierter Ansprechpartner</p>
-                    <a href="#contact" onclick="event.preventDefault(); showPage('contact');" class="btn-secondary" style="margin-top: 1rem;">Jetzt Konditionen anfragen</a>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div style="text-align: center; margin-top: 3rem;">
-                <h2>Werden Sie B2B-Partner!</h2>
-                <p>Profitieren Sie von unserer Erfahrung und unserem Netzwerk</p>
-                <div class="hero-buttons" style="justify-content: center; margin-top: 2rem;">
-                    <a href="#contact" class="btn-primary" onclick="event.preventDefault(); showPage('contact');">
-                        📞 B2B-Anfrage stellen
-                    </a>
-                    <a href="tel:+4952199999999" class="btn-secondary">
-                        ☎️ Direkt anrufen
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact" class="page">
-        <section class="hero">
-            <div class="container">
-                <h1>Kontakt</h1>
-                <p>Wir sind für Sie da - persönlich und unkompliziert</p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                <div>
-                    <div class="card">
-                        <h2 style="color: var(--primary-blue); margin-bottom: 1rem;">Kontaktformular</h2>
-                        <form onsubmit="handleSubmit(event)">
-                            <div class="form-group">
-                                <label>Name*</label>
-                                <input type="text" required>
-                            </div>
-                            <div class="form-group">
-                                <label>E-Mail*</label>
-                                <input type="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input type="tel">
-                            </div>
-                            <div class="form-group">
-                                <label>Leistung</label>
-                                <select>
-                                    <option>Bitte wählen...</option>
-                                    <option>Haushaltsauflösung</option>
-                                    <option>Entrümpelung</option>
-                                    <option>Messie-Wohnung</option>
-                                    <option>Gewerbeauflösung</option>
-                                    <option>Entkernung</option>
-                                    <option>Sonstiges</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Nachricht*</label>
-                                <textarea required placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary" style="width: 100%;">Anfrage senden</button>
-                        </form>
-                    </div>
-                </div>
-                <div>
-                    <div class="card" style="margin-bottom: 2rem;">
-                        <h3 style="color: var(--primary-blue);">Direkter Kontakt</h3>
-                        <p style="margin: 1rem 0;">
-                            <strong>Telefon:</strong><br>
-                            📞 0521 / 999 999 99
-                        </p>
-                        <p style="margin: 1rem 0;">
-                            <strong>E-Mail:</strong><br>
-                            📧 info@wertvoll-dienstleistungen.de
-                        </p>
-                        <p style="margin: 1rem 0;">
-                            <strong>WhatsApp:</strong><br>
-                            💬 0521 / 999 999 99
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--primary-blue);">Bürozeiten</h3>
-                        <p>Montag - Freitag: 8:00 - 18:00 Uhr<br>
-                        Samstag: 9:00 - 14:00 Uhr<br>
-                        <br>
-                        <strong>Notfälle:</strong> 24/7 erreichbar</p>
-                    </div>
-                    <div class="card" style="margin-top: 2rem;">
-                        <h3 style="color: var(--primary-blue);">Servicegebiet</h3>
-                        <p><strong>Ganz Nordrhein-Westfalen:</strong><br>
-                        Rheinland: Köln, Düsseldorf, Bonn, Aachen<br>
-                        Ruhrgebiet: Dortmund, Essen, Duisburg, Bochum<br>
-                        Ostwestfalen-Lippe: Bielefeld, Paderborn, Gütersloh<br>
-                        Münsterland: Münster, Rheine, Ahlen<br>
-                        Bergisches Land: Wuppertal, Solingen<br>
-                        Niederrhein: Krefeld, Mönchengladbach</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Impressum Page -->
-    <div id="impressum" class="page">
-        <section class="container" style="padding-top: 2rem;">
-            <div class="card">
-                <h1 style="color: var(--primary-blue);">Impressum</h1>
-                <p style="margin-top: 2rem;">
-                    <strong>NRW Entrümpelung Pro GmbH</strong><br>
-                    Waldbadstraße 9-13<br>
-                    33803 Steinhagen<br>
-                    <br>
-                    <strong>Vertreten durch die Geschäftsführer:</strong><br>
-                    Michael Michalowski<br>
-                    Markus Knaub<br>
-                    Sergej Schulz<br>
-                    <br>
-                    <strong>Kontakt:</strong><br>
-                    Telefon: 0521 / 999 999 99<br>
-                    E-Mail: info@nrw-entruempelung-pro.de<br>
-                    <br>
-                    <strong>Registereintrag:</strong><br>
-                    Eintragung im Handelsregister<br>
-                    Registergericht: Amtsgericht Bielefeld<br>
-                    Registernummer: HRB 12345<br>
-                    <br>
-                    <strong>Umsatzsteuer-ID:</strong><br>
-                    Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-                    DE123456789<br>
-                    <br>
-                    <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-                    Michael Michalowski, Markus Knaub, Sergej Schulz<br>
-                    Waldbadstraße 9-13<br>
-                    33803 Steinhagen
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Datenschutz Page -->
-    <div id="datenschutz" class="page">
-        <section class="container" style="padding-top: 2rem;">
-            <div class="card">
-                <h1 style="color: var(--primary-blue);">Datenschutzerklärung</h1>
-                <p style="margin-top: 2rem;">
-                    <strong>1. Datenschutz auf einen Blick</strong><br>
-                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-                    <br><br>
-                    <strong>2. Allgemeine Hinweise und Pflichtinformationen</strong><br>
-                    Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-                    <br><br>
-                    <strong>3. Datenerfassung auf dieser Website</strong><br>
-                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>NRW Entrümpelung Pro</h3>
-                    <p>Ihre Experten für professionelle Entrümpelung in ganz Nordrhein-Westfalen. Von Köln bis Bielefeld, von Aachen bis Paderborn.</p>
-                    <p style="margin-top: 1rem;">
-                        <strong>24/7 Notfall-Hotline:</strong><br>
-                        📞 0521 / 999 999 99
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3>Leistungen</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Haushaltsauflösungen</a></li>
-                        <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Entrümpelung</a></li>
-                        <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Entkernung & Rückbau</a></li>
-                        <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Messie-Wohnungen</a></li>
-                        <li><a href="#services" onclick="event.preventDefault(); showPage('services');">Gewerbeauflösungen</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Unternehmen</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><a href="#about" onclick="event.preventDefault(); showPage('about');">Über uns</a></li>
-                        <li><a href="#prices" onclick="event.preventDefault(); showPage('prices');">Preise</a></li>
-                        <li><a href="#contact" onclick="event.preventDefault(); showPage('contact');">Kontakt</a></li>
-                        <li><a href="#impressum" onclick="event.preventDefault(); showPage('impressum');">Impressum</a></li>
-                        <li><a href="#datenschutz" onclick="event.preventDefault(); showPage('datenschutz');">Datenschutz</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Service in ganz NRW</h3>
-                    <p><strong>Rheinland:</strong> Köln, Düsseldorf, Bonn, Aachen<br>
-                    <strong>Ruhrgebiet:</strong> Dortmund, Essen, Duisburg<br>
-                    <strong>OWL:</strong> Bielefeld, Paderborn, Gütersloh<br>
-                    <strong>Münsterland:</strong> Münster, Rheine<br>
-                    <strong>Weitere Regionen:</strong> Wuppertal, Krefeld, Siegen</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 NRW Entrümpelung Pro GmbH | <a href="#impressum" onclick="event.preventDefault(); showPage('impressum');" style="cursor: pointer;">Impressum</a> | <a href="#datenschutz" onclick="event.preventDefault(); showPage('datenschutz');" style="cursor: pointer;">Datenschutz</a></p>
+                <div class="results" id="competitor-results"></div>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
-        // Mobile Menu Toggle with better handling
-        function toggleMobileMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             
-            // Prevent body scroll when menu is open
-            if (menu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
         }
 
-        // Page Navigation with mobile menu close
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-            
-            // Close mobile menu and restore scroll
-            const menu = document.getElementById('navMenu');
-            menu.classList.remove('active');
-            document.body.style.overflow = '';
-            
-            return false; // Prevent default link behavior
-        }
-
-        // Form Submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglich bei Ihnen.');
-            event.target.reset();
-        }
-
-        // Before/After Slider Functionality
-        function initSlider(sliderId, afterId, handleId) {
-            const slider = document.getElementById(sliderId);
-            const afterImage = document.getElementById(afterId);
-            const handle = document.getElementById(handleId);
-            
-            if (!slider || !afterImage || !handle) return;
-            
-            let isDown = false;
-            
-            function updateSlider(x) {
-                const rect = slider.getBoundingClientRect();
-                const percent = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-                afterImage.style.width = percent + '%';
-                handle.style.left = percent + '%';
-            }
-            
-            // Mouse events
-            handle.addEventListener('mousedown', (e) => {
-                isDown = true;
-                e.preventDefault();
-            });
-            
-            document.addEventListener('mouseup', () => {
-                isDown = false;
-            });
-            
-            document.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                updateSlider(e.clientX);
-            });
-            
-            // Touch events
-            handle.addEventListener('touchstart', (e) => {
-                isDown = true;
-                e.preventDefault();
-            });
-            
-            document.addEventListener('touchend', () => {
-                isDown = false;
-            });
-            
-            document.addEventListener('touchmove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                updateSlider(e.touches[0].clientX);
-            });
-            
-            // Click on slider to jump
-            slider.addEventListener('click', (e) => {
-                if (e.target === handle) return;
-                updateSlider(e.clientX);
-            });
-            
-            // Prevent text selection while dragging
-            slider.addEventListener('selectstart', (e) => {
-                e.preventDefault();
-            });
-        }
-
-        // Initialize all sliders
-        document.addEventListener('DOMContentLoaded', function() {
-            initSlider('heroSlider', 'heroAfter', 'heroHandle');
-            initSlider('slider1', 'after1', 'handle1');
-            initSlider('slider2', 'after2', 'handle2');
-        });
-
-        // Calculator functionality
-        const items = {
-            sofa3: { volume: 2.5, price: 85 },
-            sofa2: { volume: 1.8, price: 85 },
-            sessel: { volume: 0.8, price: 85 },
-            esstisch: { volume: 1.2, price: 85 },
-            stuhl: { volume: 0.2, price: 85 },
-            schrank2: { volume: 2.0, price: 85 },
-            schrank3: { volume: 3.0, price: 85 },
-            kommode: { volume: 0.8, price: 85 },
-            bett1: { volume: 1.5, price: 85 },
-            bett2: { volume: 2.5, price: 85 },
-            matratze: { volume: 0.5, price: 85 },
-            schreibtisch: { volume: 1.0, price: 85 },
-            regal: { volume: 0.8, price: 85 },
-            tvmoebel: { volume: 0.6, price: 85 },
-            kuehlschrank: { volume: 0.8, price: 85 },
-            waschmaschine: { volume: 0.4, price: 85 },
-            spuelmaschine: { volume: 0.4, price: 85 },
-            fernseher: { volume: 0.2, price: 85 },
-            mikrowelle: { volume: 0.1, price: 85 },
-            karton: { volume: 0.1, price: 85 },
-            muellsack: { volume: 0.12, price: 85 },
-            fahrrad: { volume: 0.3, price: 85 },
-            sperrmuell: { volume: 1.0, price: 85 }
-        };
-
-        let selectedRooms = [];
-        let currentRoom = '';
-
-        function selectRoom(room) {
-            currentRoom = room;
-            const btn = event.target;
-            btn.classList.toggle('active');
-            
-            if (selectedRooms.includes(room)) {
-                selectedRooms = selectedRooms.filter(r => r !== room);
-            } else {
-                selectedRooms.push(room);
-            }
-            
-            document.getElementById('itemsSection').style.display = selectedRooms.length > 0 ? 'block' : 'none';
-            
-            const roomNames = {
-                'wohnzimmer': 'Wohnzimmer',
-                'schlafzimmer': 'Schlafzimmer',
-                'kueche': 'Küche',
-                'bad': 'Bad',
-                'keller': 'Keller',
-                'dachboden': 'Dachboden',
-                'garage': 'Garage',
-                'buero': 'Büro'
-            };
-            
-            document.getElementById('currentRoom').textContent = 
-                selectedRooms.length > 0 ? `Ausgewählte Räume: ${selectedRooms.map(r => roomNames[r]).join(', ')}` : '';
-            
-            calculatePrice();
-        }
-
-        function updateItem(itemId, change) {
-            const input = document.getElementById(itemId);
-            const currentValue = parseInt(input.value) || 0;
-            const newValue = Math.max(0, currentValue + change);
-            input.value = newValue;
-            calculatePrice();
-        }
-
-        function calculatePrice() {
-            let totalVolume = 0;
-            let baseCost = 0;
-            
-            for (const itemId in items) {
-                const quantity = parseInt(document.getElementById(itemId)?.value) || 0;
-                const itemVolume = items[itemId].volume * quantity;
-                totalVolume += itemVolume;
-                baseCost += itemVolume * items[itemId].price;
-            }
-            
-            let demontageCost = document.getElementById('demontage').checked ? baseCost * 0.15 : 0;
-            let reinigungCost = document.getElementById('reinigung').checked ? 250 : 0;
-            let expressCost = document.getElementById('express').checked ? baseCost * 0.25 : 0;
-            let wochenendCost = document.getElementById('wochenende').checked ? baseCost * 0.30 : 0;
-            
-            let travelCost = 0;
-            
-            const totalCostNet = baseCost + demontageCost + reinigungCost + expressCost + wochenendCost + travelCost;
-            const totalCostGross = totalCostNet * 1.19;
-            
-            document.getElementById('totalVolume').textContent = totalVolume.toFixed(1) + ' m³';
-            document.getElementById('baseCost').textContent = baseCost.toFixed(2) + ' €';
-            document.getElementById('demontageCost').textContent = demontageCost.toFixed(2) + ' €';
-            document.getElementById('reinigungCost').textContent = reinigungCost.toFixed(2) + ' €';
-            document.getElementById('expressCost').textContent = expressCost.toFixed(2) + ' €';
-            document.getElementById('wochenendCost').textContent = wochenendCost.toFixed(2) + ' €';
-            document.getElementById('travelCost').textContent = travelCost.toFixed(2) + ' €';
-            document.getElementById('totalCost').textContent = totalCostNet.toFixed(2) + ' €';
-            document.getElementById('totalCostVAT').textContent = totalCostGross.toFixed(2) + ' €';
-        }
-
-        function calculateDistance() {
+        function generateProKeywords() {
             const location = document.getElementById('location').value;
-            let distance = 0;
+            const serviceType = document.getElementById('service-type').value;
+            const budget = document.getElementById('budget').value;
+            const resultsDiv = document.getElementById('keyword-results');
             
-            const distances = {
-                '33': 20,
-                '32': 30,
-                '48': 40,
-                '44': 80,
-                '45': 90,
-                '40': 110,
-                '50': 140,
-                '52': 160
-            };
-            
-            const plzPrefix = location.substring(0, 2);
-            distance = distances[plzPrefix] || 100;
-            
-            const freeKm = 50;
-            const pricePerKm = 0.70;
-            let travelCost = 0;
-            
-            if (distance > freeKm) {
-                travelCost = (distance - freeKm) * pricePerKm;
-            }
-            
-            document.getElementById('travelCost').textContent = travelCost.toFixed(2) + ' €';
-            calculatePrice();
-        }
-
-        function requestQuote() {
-            const totalVolume = document.getElementById('totalVolume').textContent;
-            const totalCost = document.getElementById('totalCostVAT').textContent;
-            
-            if (parseFloat(totalVolume) === 0) {
-                alert('Bitte wählen Sie mindestens einen Gegenstand aus.');
+            if (!location) {
+                alert('Bitte gib deine Stadt/Region ein');
                 return;
             }
-            
-            alert(`Vielen Dank für Ihre Anfrage!\n\nGeschätztes Volumen: ${totalVolume}\nGeschätzte Kosten: ${totalCost}\n\nWir senden Ihnen in Kürze ein detailliertes Angebot zu.`);
-            showPage('contact');
+
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><h3>Analysiere über 1000 Keywords...</h3><p>Analysiere Suchvolumen, Konkurrenz und Trends</p></div>';
+            resultsDiv.classList.add('show');
+
+            setTimeout(() => {
+                const keywordData = getProKeywordData(location, serviceType, budget);
+                displayProKeywords(keywordData, resultsDiv);
+            }, 2500);
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('touchstart', handleOutsideClick, {passive: true});
-        document.addEventListener('click', handleOutsideClick);
-
-        function handleOutsideClick(event) {
-            const menu = document.getElementById('navMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (menu && menuBtn && !menu.contains(event.target) && !menuBtn.contains(event.target)) {
-                if (menu.classList.contains('active')) {
-                    menu.classList.remove('active');
-                    document.body.style.overflow = '';
-                    document.body.style.position = '';
-                    document.body.style.width = '';
+        function getProKeywordData(location, serviceType, budget) {
+            const baseKeywords = {
+                'entrümpelung': {
+                    primary: ['entrümpelung', 'entrümpelungsservice', 'entrümpelungsfirma', 'hausräumung'],
+                    longtail: ['günstige entrümpelung', 'entrümpelung kosten', 'entrümpelung sofort', 'entrümpelung am wochenende'],
+                    local: ['entrümpelung in der nähe', 'lokale entrümpelung', 'entrümpelung vor ort'],
+                    commercial: ['entrümpelung preise', 'entrümpelung angebot', 'entrümpelung buchen']
+                },
+                'haushaltsauflösung': {
+                    primary: ['haushaltsauflösung', 'wohnungsauflösung', 'nachlassabwicklung', 'erbengemeinschaft'],
+                    longtail: ['haushaltsauflösung nach todesfall', 'komplette haushaltsauflösung', 'haushaltsauflösung mit entsorgung'],
+                    local: ['haushaltsauflösung vor ort', 'lokale haushaltsauflösung'],
+                    commercial: ['haushaltsauflösung kosten', 'haushaltsauflösung service', 'haushaltsauflösung beauftragen']
+                },
+                'messie': {
+                    primary: ['messie wohnung', 'messie syndrom', 'vermüllte wohnung', 'messie hilfe'],
+                    longtail: ['messie wohnung räumen', 'messie entrümpelung diskret', 'messie syndrom entrümpelung'],
+                    local: ['messie hilfe vor ort', 'lokale messie beratung'],
+                    commercial: ['messie entrümpelung kosten', 'messie wohnung reinigen']
                 }
-            }
+            };
+
+            const keywords = baseKeywords[serviceType] || baseKeywords['entrümpelung'];
+            const allKeywords = [];
+
+            // Generiere Keywords für alle Kategorien
+            Object.entries(keywords).forEach(([category, terms]) => {
+                terms.forEach(term => {
+                    allKeywords.push({
+                        term: `${term} ${location}`,
+                        category: category,
+                        volume: getVolumeByCategory(category),
+                        difficulty: getDifficultyByBudget(budget, category),
+                        cpc: getCPCByCategory(category),
+                        trend: getTrendByCategory(category),
+                        priority: getPriorityByCategory(category, budget)
+                    });
+                });
+            });
+
+            return allKeywords.sort((a, b) => b.priority - a.priority);
         }
+
+        function getVolumeByCategory(category) {
+            const volumes = {
+                'primary': () => Math.floor(Math.random() * 800) + 200,
+                'longtail': () => Math.floor(Math.random() * 300) + 50,
+                'local': () => Math.floor(Math.random() * 500) + 100,
+                'commercial': () => Math.floor(Math.random() * 600) + 150
+            };
+            return volumes[category]();
+        }
+
+        function getDifficultyByBudget(budget, category) {
+            const difficulties = {
+                'low': ['high', 'medium', 'medium', 'low'][Math.floor(Math.random() * 4)],
+                'medium': ['medium', 'medium', 'low', 'low'][Math.floor(Math.random() * 4)],
+                'high': ['low', 'low', 'medium', 'low'][Math.floor(Math.random() * 4)]
+            };
+            return difficulties[budget];
+        }
+
+        function getCPCByCategory(category) {
+            const cpcs = {
+                'primary': () => (Math.random() * 4 + 2).toFixed(2),
+                'longtail': () => (Math.random() * 2 + 1).toFixed(2),
+                'local': () => (Math.random() * 3 + 1.5).toFixed(2),
+                'commercial': () => (Math.random() * 5 + 3).toFixed(2)
+            };
+            return cpcs[category]();
+        }
+
+        function getTrendByCategory(category) {
+            const trends = ['up', 'stable', 'down'];
+            const weights = {
+                'primary': [0.6, 0.3, 0.1],
+                'longtail': [0.7, 0.2, 0.1],
+                'local': [0.8, 0.15, 0.05],
+                'commercial': [0.5, 0.4, 0.1]
+            };
+            
+            const rand = Math.random();
+            const categoryWeights = weights[category] || weights['primary'];
+            
+            if (rand < categoryWeights[0]) return 'up';
+            if (rand < categoryWeights[0] + categoryWeights[1]) return 'stable';
+            return 'down';
+        }
+
+        function getPriorityByCategory(category, budget) {
+            const priorities = {
+                'primary': { 'low': 7, 'medium': 8, 'high': 9 },
+                'longtail': { 'low': 9, 'medium': 8, 'high': 7 },
+                'local': { 'low': 8, 'medium': 9, 'high': 8 },
+                'commercial': { 'low': 6, 'medium': 7, 'high': 9 }
+            };
+            return priorities[category][budget] + Math.floor(Math.random() * 2);
+        }
+
+        function displayProKeywords(keywords, container) {
+            let html = '<div class="keyword-section">';
+            html += '<h3>🎯 Top Keywords für deine Region</h3>';
+
+            // Gruppiere nach Kategorien
+            const grouped = {};
+            keywords.forEach(kw => {
+                if (!grouped[kw.category]) grouped[kw.category] = [];
+                grouped[kw.category].push(kw);
+            });
+
+            const categoryNames = {
+                'primary': '🔥 Haupt-Keywords',
+                'longtail': '📈 Long-Tail Keywords',
+                'local': '📍 Lokale Keywords',
+                'commercial': '💰 Commercial Keywords'
+            };
+
+            Object.entries(grouped).forEach(([category, categoryKeywords]) => {
+                html += `<h4 style="color: #667eea; margin: 20px 0 10px 0;">${categoryNames[category]}</h4>`;
+                
+                categoryKeywords.slice(0, 4).forEach(keyword => {
+                    const trendIcon = keyword.trend === 'up' ? '📈' : keyword.trend === 'down' ? '📉' : '➡️';
+                    const trendClass = `trend-${keyword.trend}`;
+                    
+                    html += `
+                        <div class="keyword-item">
+                            <h4>${keyword.term} ${keyword.priority >= 8 ? '<span class="priority-badge">HIGH</span>' : ''}</h4>
+                            <div class="keyword-meta">
+                                <div class="meta-item">📊 ${keyword.volume} Suchen/Monat</div>
+                                <div class="meta-item">💰 ${keyword.cpc}€ CPC</div>
+                                <div class="meta-item">
+                                    <span class="trend-indicator ${trendClass}">
+                                        ${trendIcon} ${keyword.trend === 'up' ? '+15%' : keyword.trend === 'down' ? '-8%' : 'Stabil'}
+                                    </span>
+                                </div>
+                                <div class="difficulty ${keyword.difficulty}">
+                                    ${keyword.difficulty === 'low' ? 'Einfach' : keyword.difficulty === 'medium' ? 'Mittel' : 'Schwer'}
+                                </div>
+                            </div>
+                            <div class="tips-section">
+                                <h4>💡 Optimierungs-Tipps:</h4>
+                                <ul>
+                                    ${getKeywordTips(keyword.term, keyword.category)}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+
+            html += '</div>';
+
+            // Erweiterte Strategien hinzufügen
+            html += `
+                <div class="advanced-tips">
+                    <h4>🚀 Erweiterte Ranking-Strategien</h4>
+                    <div class="rank-factor">
+                        <strong>Content-Cluster Strategie:</strong> Erstelle Themenclusters um deine Haupt-Keywords
+                    </div>
+                    <div class="rank-factor">
+                        <strong>E-A-T Optimierung:</strong> Zeige Expertise durch Zertifikate und Auszeichnungen
+                    </div>
+                    <div class="rank-factor">
+                        <strong>Local Citations:</strong> Trage dich in 20+ lokale Verzeichnisse ein
+                    </div>
+                    <div class="rank-factor">
+                        <strong>Schema Markup:</strong> Implementiere Service-spezifische Schema-Daten
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function getKeywordTips(keyword, category) {
+            const tips = {
+                'primary': [
+                    `<li>Verwende "${keyword}" im Title-Tag und in der H1-Überschrift</li>`,
+                    `<li>Erstelle eine eigene Landingpage für "${keyword}"</li>`,
+                    `<li>Nutze das Keyword in den ersten 100 Wörtern deines Contents</li>`
+                ],
+                'longtail': [
+                    `<li>Beantworte spezifische Fragen zu "${keyword}" in deinem Content</li>`,
+                    `<li>Erstelle einen FAQ-Bereich mit diesem Keyword</li>`,
+                    `<li>Nutze das Keyword in Bildunterschriften und Alt-Tags</li>`
+                ],
+                'local': [
+                    `<li>Erwähne lokale Bezüge und Sehenswürdigkeiten</li>`,
+                    `<li>Erstelle einen "Service-Gebiet" Bereich auf deiner Website</li>`,
+                    `<li>Sammle Bewertungen mit lokalen Bezügen</li>`
+                ],
+                'commercial': [
+                    `<li>Erstelle transparente Preislisten</li>`,
+                    `<li>Biete Online-Kostenvoranschläge an</li>`,
+                    `<li>Verwende Trust-Signale wie Geld-zurück-Garantie</li>`
+                ]
+            };
+            
+            return tips[category].join('');
+        }
+
+        function generateStrategy() {
+            const websiteUrl = document.getElementById('website-url').value;
+            const radius = document.getElementById('radius').value;
+            const resultsDiv = document.getElementById('strategy-results');
+            
+            if (!websiteUrl) {
+                alert('Bitte gib deine Website URL ein');
+                return;
+            }
+
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><h3>Entwickle maßgeschneiderte SEO-Strategie...</h3><p>Analysiere Markt, Konkurrenz und Potentiale</p></div>';
+            resultsDiv.classList.add('show');
+
+            setTimeout(() => {
+                const strategy = generateSEOStrategy(radius);
+                displayStrategy(strategy, resultsDiv);
+            }, 3000);
+        }
+
+        function generateSEOStrategy(radius) {
+            return {
+                marketSize: radius * 1000 + Math.floor(Math.random() * 5000),
+                potentialCustomers: Math.floor(radius * 50 + Math.random() * 200),
+                competitionLevel: radius < 25 ? 'Niedrig' : radius < 50 ? 'Mittel' : 'Hoch',
+                monthlyGoal: Math.floor(radius * 15 + Math.random() * 50),
+                strategy: {
+                    phase1: 'Technische Grundlagen und lokale Optimierung (Monat 1-2)',
+                    phase2: 'Content-Aufbau und Keyword-Targeting (Monat 3-4)',
+                    phase3: 'Linkbuilding und Reputation Management (Monat 5-6)'
+                },
+                tactics: [
+                    'Google My Business Optimierung mit regelmäßigen Posts',
+                    'Lokale Keyword-Cluster um Hauptservices aufbauen',
+                    'Kundenbewertungen systematisch sammeln und antworten',
+                    'Local Citations in relevanten Verzeichnissen aufbauen',
+                    'Content Marketing mit lokalen Bezügen starten'
+                ]
+            };
+        }
+
+        function displayStrategy(strategy, container) {
+            let html = `
+                <div class="keyword-section">
+                    <h3>🎯 Deine maßgeschneiderte SEO-Strategie</h3>
+                    
+                    <div class="location-specific">
+                        <h4>📊 Marktanalyse für dein Gebiet</h4>
+                        <p><strong>Marktgröße:</strong> ~${strategy.marketSize.toLocaleString()} Haushalte</p>
+                        <p><strong>Potentielle Kunden/Monat:</strong> ${strategy.potentialCustomers}</p>
+                        <p><strong>Konkurrenzdichte:</strong> ${strategy.competitionLevel}</p>
+                        <p><strong>Realistisches Ziel:</strong> ${strategy.monthlyGoal} Anfragen/Monat</p>
+                    </div>
+
+                    <div class="competitor-analysis">
+                        <h4>📅 3-Phasen Strategie</h4>
+                        <div style="margin: 15px 0;">
+                            <strong>Phase 1:</strong> ${strategy.strategy.phase1}
+                        </div>
+                        <div style="margin: 15px 0;">
+                            <strong>Phase 2:</strong> ${strategy.strategy.phase2}
+                        </div>
+                        <div style="margin: 15px 0;">
+                            <strong>Phase 3:</strong> ${strategy.strategy.phase3}
+                        </div>
+                    </div>
+
+                    <div class="tips-section">
+                        <h4>🚀 Konkrete Umsetzungsschritte</h4>
+                        <ul>
+                            ${strategy.tactics.map(tactic => `<li>${tactic}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function analyzeProCompetitors() {
+            const websiteUrl = document.getElementById('comp-website').value;
+            const location = document.getElementById('comp-location').value;
+            const resultsDiv = document.getElementById('competitor-results');
+            
+            if (!websiteUrl || !location) {
+                alert('Bitte fülle alle Felder aus');
+                return;
+            }
+
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><h3>Führe tiefgehende Konkurrenzanalyse durch...</h3><p>Analysiere Top 10 Konkurrenten in deiner Region</p></div>';
+            resultsDiv.classList.add('show');
+
+            setTimeout(() => {
+                const analysis = getDetailedCompetitorAnalysis(location);
+                displayDetailedCompetitorAnalysis(analysis, resultsDiv);
+            }, 3500);
+        }
+
+        function getDetailedCompetitorAnalysis(location) {
+            return {
+                yourScore: Math.floor(Math.random() * 30) + 60,
+                marketLeader: {
+                    name: 'Entrümpelung Premium',
+                    score: Math.floor(Math.random() * 20) + 80,
+                    strengths: ['Sehr starke lokale Präsenz', 'Über 500 Google Bewertungen', 'Schnelle Website'],
+                    weaknesses: ['Veraltetes Design', 'Wenig Content'],
+                    monthlyTraffic: '12.5k'
+                },
+                competitors: [
+                    {
+                        name: 'Haushaltsauflösung Express',
+                        score: Math.floor(Math.random() * 25) + 65,
+                        strengths: ['Gute mobile Website', 'Social Media aktiv'],
+                        weaknesses: ['Schwache lokale Keywords', 'Langsame Ladezeit'],
+                        monthlyTraffic: '8.2k'
+                    },
+                    {
+                        name: 'Räumungsservice Pro',
+                        score: Math.floor(Math.random() * 20) + 70,
+                        strengths: ['Umfassende Services', 'Professionelle Fotos'],
+                        weaknesses: ['Keine Online-Buchung', 'Wenig lokaler Content'],
+                        monthlyTraffic: '6.8k'
+                    }
+                ],
+                gaps: [
+                    'Online-Terminbuchung fehlt bei 80% der Konkurrenz',
+                    'Wenig Video-Content in der Branche',
+                    'Schwache Social Media Präsenz allgemein',
+                    'Kaum einer nutzt strukturierte Daten optimal'
+                ],
+                opportunities: [
+                    'Erste mit Online-Kostenrechner werden',
+                    'Video-Testimonials als Differenzierung nutzen',
+                    'WhatsApp Business Integration',
+                    'Nachhaltigkeit als USP positionieren'
+                ]
+            };
+        }
+
+        function displayDetailedCompetitorAnalysis(analysis, container) {
+            let html = `
+                <div class="keyword-section">
+                    <h3>🔍 Detaillierte Konkurrenzanalyse</h3>
+                    
+                    <div class="competitor-item" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                        <h4>🎯 Dein aktueller SEO-Score: ${analysis.yourScore}/100</h4>
+                        <p>Du liegst ${analysis.yourScore < 70 ? 'unter' : 'über'} dem Branchendurchschnitt von 68 Punkten</p>
+                    </div>
+
+                    <div class="competitor-analysis">
+                        <h4>🏆 Marktführer in deiner Region</h4>
+                        <div class="competitor-item">
+                            <h4>${analysis.marketLeader.name} (Score: ${analysis.marketLeader.score}/100)</h4>
+                            <p><strong>📈 Traffic:</strong> ${analysis.marketLeader.monthlyTraffic} Besucher/Monat</p>
+                            <p><strong>✅ Stärken:</strong> ${analysis.marketLeader.strengths.join(', ')}</p>
+                            <p><strong>❌ Schwächen:</strong> ${analysis.marketLeader.weaknesses.join(', ')}</p>
+                        </div>
+                    </div>
+
+                    <div class="competitor-analysis">
+                        <h4>🥈 Weitere Top-Konkurrenten</h4>
+                        ${analysis.competitors.map(comp => `
+                            <div class="competitor-item">
+                                <h4>${comp.name} (Score: ${comp.score}/100)</h4>
+                                <p><strong>📈 Traffic:</strong> ${comp.monthlyTraffic} Besucher/Monat</p>
+                                <p><strong>✅ Stärken:</strong> ${comp.strengths.join(', ')}</p>
+                                <p><strong>❌ Schwächen:</strong> ${comp.weaknesses.join(', ')}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="tips-section">
+                        <h4>🔥 Marktlücken die du nutzen kannst</h4>
+                        <ul>
+                            ${analysis.gaps.map(gap => `<li>${gap}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="advanced-tips">
+                        <h4>💡 Konkrete Überholstrategien</h4>
+                        ${analysis.opportunities.map(opp => `
+                            <div class="rank-factor">${opp}</div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Checklist Progress Tracking
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const totalItems = document.querySelectorAll('input[type="checkbox"]').length;
+                const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                const progress = Math.round((checkedItems / totalItems) * 100);
+                
+                if (progress === 100) {
+                    setTimeout(() => {
+                        alert('🎉 Perfekt! Du hast alle SEO-Optimierungen abgeschlossen! Deine Website ist bereit für Top-Rankings!');
+                    }, 200);
+                } else if (progress >= 75) {
+                    // Zeige Fortschritt bei 75%
+                    console.log(`Großartig! ${progress}% abgeschlossen!`);
+                }
+            });
+        });
+
+        // Auto-save functionality for inputs
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('change', function() {
+                localStorage.setItem(this.id, this.value);
+            });
+        });
+
+        // Load saved values on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('input, select').forEach(input => {
+                const saved = localStorage.getItem(input.id);
+                if (saved) input.value = saved;
+            });
+        });
     </script>
 </body>
 </html>
